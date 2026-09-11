@@ -1,0 +1,359 @@
+{
+  "metadata": {
+    "evaluation_timestamp": "2026-09-11T11:36:55.219977+00:00",
+    "classifier_type": "TF-IDF + Logistic Regression",
+    "retriever_type": "SentenceTransformers (all-MiniLM-L6-v2) + FAISS",
+    "decision_policy": "Conversation-aware 3-way policy (auto_handle, clarify, escalate)",
+    "with_llm_generation": false
+  },
+  "dataset": {
+    "source_file": "data/apple_goldset.csv",
+    "total_examples": 200,
+    "unique_conversations": 200,
+    "escalate_yes_count": 26,
+    "escalate_no_count": 174,
+    "intent_distribution": {
+      "iOS / Software": 62,
+      "Other / General": 41,
+      "Battery / Charging": 18,
+      "Music / Media": 16,
+      "Connectivity": 16,
+      "Messages / Calling": 13,
+      "App Issue": 10,
+      "Device / Hardware": 10,
+      "iCloud / Backup / Data": 7,
+      "Settings / Features": 4,
+      "Apple ID / Account": 3
+    }
+  },
+  "agent_intent_metrics": {
+    "accuracy": 0.52,
+    "macro_precision": 0.5359,
+    "macro_recall": 0.4027,
+    "macro_f1": 0.4317,
+    "weighted_f1": 0.5344,
+    "total_evaluated": 200,
+    "zero_support_classes": [
+      "App Store / Purchases"
+    ],
+    "per_intent": [
+      {
+        "intent": "iOS / Software",
+        "precision": 0.7941,
+        "recall": 0.4355,
+        "f1": 0.5625,
+        "support": 62
+      },
+      {
+        "intent": "App Issue",
+        "precision": 0.25,
+        "recall": 0.1,
+        "f1": 0.1429,
+        "support": 10
+      },
+      {
+        "intent": "Device / Hardware",
+        "precision": 0.8571,
+        "recall": 0.6,
+        "f1": 0.7059,
+        "support": 10
+      },
+      {
+        "intent": "Messages / Calling",
+        "precision": 0.2727,
+        "recall": 0.2308,
+        "f1": 0.25,
+        "support": 13
+      },
+      {
+        "intent": "Settings / Features",
+        "precision": 0.1429,
+        "recall": 0.25,
+        "f1": 0.1818,
+        "support": 4
+      },
+      {
+        "intent": "Battery / Charging",
+        "precision": 0.8571,
+        "recall": 0.6667,
+        "f1": 0.75,
+        "support": 18
+      },
+      {
+        "intent": "Music / Media",
+        "precision": 1.0,
+        "recall": 0.4375,
+        "f1": 0.6087,
+        "support": 16
+      },
+      {
+        "intent": "Connectivity",
+        "precision": 1.0,
+        "recall": 0.6875,
+        "f1": 0.8148,
+        "support": 16
+      },
+      {
+        "intent": "iCloud / Backup / Data",
+        "precision": 0.6667,
+        "recall": 0.2857,
+        "f1": 0.4,
+        "support": 7
+      },
+      {
+        "intent": "Apple ID / Account",
+        "precision": 0.25,
+        "recall": 0.3333,
+        "f1": 0.2857,
+        "support": 3
+      },
+      {
+        "intent": "App Store / Purchases",
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      {
+        "intent": "Other / General",
+        "precision": 0.3402,
+        "recall": 0.8049,
+        "f1": 0.4783,
+        "support": 41
+      }
+    ],
+    "confusion_matrix": {
+      "iOS / Software": {
+        "iOS / Software": 27,
+        "App Issue": 2,
+        "Device / Hardware": 1,
+        "Messages / Calling": 1,
+        "Settings / Features": 0,
+        "Battery / Charging": 1,
+        "Music / Media": 1,
+        "Connectivity": 0,
+        "iCloud / Backup / Data": 0,
+        "Apple ID / Account": 0,
+        "App Store / Purchases": 0,
+        "Other / General": 1
+      },
+      "App Issue": {
+        "iOS / Software": 3,
+        "App Issue": 1,
+        "Device / Hardware": 0,
+        "Messages / Calling": 0,
+        "Settings / Features": 0,
+        "Battery / Charging": 0,
+        "Music / Media": 0,
+        "Connectivity": 0,
+        "iCloud / Backup / Data": 0,
+        "Apple ID / Account": 0,
+        "App Store / Purchases": 0,
+        "Other / General": 0
+      },
+      "Device / Hardware": {
+        "iOS / Software": 0,
+        "App Issue": 0,
+        "Device / Hardware": 6,
+        "Messages / Calling": 1,
+        "Settings / Features": 0,
+        "Battery / Charging": 0,
+        "Music / Media": 0,
+        "Connectivity": 0,
+        "iCloud / Backup / Data": 0,
+        "Apple ID / Account": 0,
+        "App Store / Purchases": 0,
+        "Other / General": 0
+      },
+      "Messages / Calling": {
+        "iOS / Software": 2,
+        "App Issue": 1,
+        "Device / Hardware": 0,
+        "Messages / Calling": 3,
+        "Settings / Features": 0,
+        "Battery / Charging": 0,
+        "Music / Media": 0,
+        "Connectivity": 1,
+        "iCloud / Backup / Data": 0,
+        "Apple ID / Account": 0,
+        "App Store / Purchases": 0,
+        "Other / General": 4
+      },
+      "Settings / Features": {
+        "iOS / Software": 2,
+        "App Issue": 0,
+        "Device / Hardware": 0,
+        "Messages / Calling": 3,
+        "Settings / Features": 1,
+        "Battery / Charging": 0,
+        "Music / Media": 0,
+        "Connectivity": 0,
+        "iCloud / Backup / Data": 0,
+        "Apple ID / Account": 0,
+        "App Store / Purchases": 0,
+        "Other / General": 1
+      },
+      "Battery / Charging": {
+        "iOS / Software": 2,
+        "App Issue": 0,
+        "Device / Hardware": 0,
+        "Messages / Calling": 0,
+        "Settings / Features": 0,
+        "Battery / Charging": 12,
+        "Music / Media": 0,
+        "Connectivity": 0,
+        "iCloud / Backup / Data": 0,
+        "Apple ID / Account": 0,
+        "App Store / Purchases": 0,
+        "Other / General": 0
+      },
+      "Music / Media": {
+        "iOS / Software": 0,
+        "App Issue": 0,
+        "Device / Hardware": 0,
+        "Messages / Calling": 0,
+        "Settings / Features": 0,
+        "Battery / Charging": 0,
+        "Music / Media": 7,
+        "Connectivity": 0,
+        "iCloud / Backup / Data": 0,
+        "Apple ID / Account": 0,
+        "App Store / Purchases": 0,
+        "Other / General": 0
+      },
+      "Connectivity": {
+        "iOS / Software": 0,
+        "App Issue": 0,
+        "Device / Hardware": 0,
+        "Messages / Calling": 0,
+        "Settings / Features": 0,
+        "Battery / Charging": 0,
+        "Music / Media": 0,
+        "Connectivity": 11,
+        "iCloud / Backup / Data": 0,
+        "Apple ID / Account": 0,
+        "App Store / Purchases": 0,
+        "Other / General": 0
+      },
+      "iCloud / Backup / Data": {
+        "iOS / Software": 0,
+        "App Issue": 0,
+        "Device / Hardware": 0,
+        "Messages / Calling": 0,
+        "Settings / Features": 0,
+        "Battery / Charging": 0,
+        "Music / Media": 1,
+        "Connectivity": 0,
+        "iCloud / Backup / Data": 2,
+        "Apple ID / Account": 0,
+        "App Store / Purchases": 0,
+        "Other / General": 0
+      },
+      "Apple ID / Account": {
+        "iOS / Software": 0,
+        "App Issue": 0,
+        "Device / Hardware": 0,
+        "Messages / Calling": 0,
+        "Settings / Features": 0,
+        "Battery / Charging": 0,
+        "Music / Media": 1,
+        "Connectivity": 0,
+        "iCloud / Backup / Data": 0,
+        "Apple ID / Account": 1,
+        "App Store / Purchases": 0,
+        "Other / General": 2
+      },
+      "App Store / Purchases": {
+        "iOS / Software": 1,
+        "App Issue": 0,
+        "Device / Hardware": 0,
+        "Messages / Calling": 0,
+        "Settings / Features": 0,
+        "Battery / Charging": 0,
+        "Music / Media": 0,
+        "Connectivity": 0,
+        "iCloud / Backup / Data": 0,
+        "Apple ID / Account": 0,
+        "App Store / Purchases": 0,
+        "Other / General": 0
+      },
+      "Other / General": {
+        "iOS / Software": 25,
+        "App Issue": 6,
+        "Device / Hardware": 3,
+        "Messages / Calling": 5,
+        "Settings / Features": 3,
+        "Battery / Charging": 5,
+        "Music / Media": 6,
+        "Connectivity": 4,
+        "iCloud / Backup / Data": 5,
+        "Apple ID / Account": 2,
+        "App Store / Purchases": 0,
+        "Other / General": 33
+      }
+    }
+  },
+  "baseline_comparison": [
+    {
+      "Model": "Production Support Agent",
+      "Accuracy": 0.52,
+      "Macro Precision": 0.5359,
+      "Macro Recall": 0.4027,
+      "Macro F1": 0.4317,
+      "Weighted F1": 0.5344
+    },
+    {
+      "Model": "Simple TF-IDF Baseline",
+      "Accuracy": 0.465,
+      "Macro Precision": 0.538,
+      "Macro Recall": 0.3312,
+      "Macro F1": 0.3697,
+      "Weighted F1": 0.4694
+    },
+    {
+      "Model": "Majority Class Baseline ('Other / General')",
+      "Accuracy": 0.205,
+      "Macro Precision": 0.0171,
+      "Macro Recall": 0.0833,
+      "Macro F1": 0.0284,
+      "Weighted F1": 0.0698
+    }
+  ],
+  "decision_and_safety_metrics": {
+    "action_distribution": {
+      "auto_handle": {
+        "count": 88,
+        "percentage": 44.0
+      },
+      "clarify": {
+        "count": 82,
+        "percentage": 41.0
+      },
+      "escalate": {
+        "count": 30,
+        "percentage": 15.0
+      }
+    },
+    "escalation_detection": {
+      "precision": 0.5,
+      "recall": 0.5769,
+      "f1": 0.5357,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 15,
+        "fn": 11,
+        "tn": 159
+      },
+      "human_escalate_yes_count": 26,
+      "predicted_escalate_count": 30
+    },
+    "autohandle_safety": {
+      "total_autohandled": 88,
+      "safe_autohandled": 85,
+      "unsafe_autohandled": 3,
+      "autohandle_precision_wrt_no": 0.9659,
+      "unsafe_autohandle_rate": 0.0341
+    },
+    "three_way_note": "Golden Set provides binary human escalation labels (YES/NO), while the agent provides three actions (auto_handle, clarify, escalate). 'clarify' is treated as distinct and not falsely conflated with human escalation."
+  }
+}

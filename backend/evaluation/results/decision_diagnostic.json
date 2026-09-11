@@ -1,0 +1,71 @@
+{
+  "summary": {
+    "total_evaluated": 200,
+    "predicted_escalate_total": 99,
+    "false_positive_escalations": 87,
+    "false_negative_escalations": 14,
+    "unsafe_auto_handles": 12,
+    "clarify_cases": 25
+  },
+  "escalation_reasons_breakdown": {
+    "insufficient retrieval evidence": 61,
+    "low intent confidence": 35,
+    "repeated troubleshooting": 2,
+    "sensitive/safety issue": 1
+  },
+  "false_positive_breakdown": {
+    "by_category": {
+      "insufficient retrieval evidence": 58,
+      "low intent confidence": 29
+    },
+    "by_predicted_intent": {
+      "Other / General": 52,
+      "iOS / Software": 13,
+      "Battery / Charging": 6,
+      "Music / Media": 4,
+      "Settings / Features": 3,
+      "Device / Hardware": 3,
+      "iCloud / Backup / Data": 2,
+      "App Issue": 1,
+      "Connectivity": 1,
+      "App Store / Purchases": 1,
+      "Apple ID / Account": 1
+    },
+    "mean_top_similarity": 0.6262,
+    "mean_intent_confidence": 0.5139
+  },
+  "false_negative_breakdown": {
+    "by_predicted_action": {
+      "auto_handle": 12,
+      "clarify": 2
+    },
+    "auto_handle_count": 12,
+    "clarify_count": 2
+  },
+  "unsafe_auto_handle_breakdown": {
+    "count": 12,
+    "by_predicted_intent": {
+      "Battery / Charging": 3,
+      "Other / General": 2,
+      "Music / Media": 2,
+      "Settings / Features": 1,
+      "iOS / Software": 1,
+      "Connectivity": 1,
+      "Messages / Calling": 1,
+      "App Issue": 1
+    },
+    "mean_top_similarity": 0.7594,
+    "mean_intent_confidence": 0.8659
+  },
+  "clarify_breakdown": {
+    "count": 25,
+    "human_escalate_distribution": {
+      "NO": 23,
+      "YES": 2
+    },
+    "by_predicted_intent": {
+      "Other / General": 24,
+      "Messages / Calling": 1
+    }
+  }
+}

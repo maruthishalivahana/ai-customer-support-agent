@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "evaluation_dataset": "data/apple_goldset.csv (200 examples)",
+    "phase8_timestamp": null,
+    "phase10_timestamp": "2026-09-11T11:36:55.219977+00:00"
+  },
+  "intent_classification": {
+    "accuracy": {
+      "before": 0.52,
+      "after": 0.52,
+      "delta": 0.0
+    },
+    "macro_f1": {
+      "before": 0.4317,
+      "after": 0.4317,
+      "delta": 0.0
+    },
+    "weighted_f1": {
+      "before": 0.5344,
+      "after": 0.5344,
+      "delta": 0.0
+    }
+  },
+  "action_distribution": {
+    "auto_handle": {
+      "before_count": 76,
+      "after_count": 88,
+      "before_pct": 38.0,
+      "after_pct": 44.0,
+      "count_delta": 12
+    },
+    "clarify": {
+      "before_count": 25,
+      "after_count": 82,
+      "before_pct": 12.5,
+      "after_pct": 41.0,
+      "count_delta": 57
+    },
+    "escalate": {
+      "before_count": 99,
+      "after_count": 30,
+      "before_pct": 49.5,
+      "after_pct": 15.0,
+      "count_delta": -69
+    }
+  },
+  "escalation_metrics": {
+    "precision": {
+      "before": 0.1212,
+      "after": 0.5,
+      "delta": 0.3788
+    },
+    "recall": {
+      "before": 0.4615,
+      "after": 0.5769,
+      "delta": 0.1154
+    },
+    "f1": {
+      "before": 0.192,
+      "after": 0.5357,
+      "delta": 0.3437
+    },
+    "confusion_matrix": {
+      "before": {
+        "tp": 12,
+        "fp": 87,
+        "fn": 14,
+        "tn": 87
+      },
+      "after": {
+        "tp": 15,
+        "fp": 15,
+        "fn": 11,
+        "tn": 159
+      }
+    },
+    "false_positives": {
+      "before": 87,
+      "after": 15,
+      "delta": -72
+    },
+    "false_negatives": {
+      "before": 14,
+      "after": 11,
+      "delta": -3
+    }
+  },
+  "autohandle_safety": {
+    "total_autohandled": {
+      "before": 76,
+      "after": 88,
+      "delta": 12
+    },
+    "safe_autohandled": {
+      "before": 64,
+      "after": 85,
+      "delta": 21
+    },
+    "unsafe_autohandled": {
+      "before": 12,
+      "after": 3,
+      "delta": -9
+    },
+    "autohandle_precision": {
+      "before": 0.8421,
+      "after": 0.9659,
+      "delta": 0.1238
+    },
+    "unsafe_autohandle_rate": {
+      "before": 0.1579,
+      "after": 0.0341,
+      "delta": -0.1238
+    }
+  },
+  "safety_gate_status": "PASSED"
+}

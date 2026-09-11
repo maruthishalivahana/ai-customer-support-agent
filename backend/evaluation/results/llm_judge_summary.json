@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-11T10:18:05.281007+00:00",
+    "judge_model": "openrouter/free",
+    "temperature": 0.0,
+    "total_evaluated": 200,
+    "judge_failures": 0,
+    "valid_results_pct": 100.0
+  },
+  "response_quality_metrics": {
+    "means": {
+      "correctness": 4.91,
+      "groundedness": 4.81,
+      "helpfulness": 4.0,
+      "relevance": 5.0,
+      "action_appropriateness": 5.0,
+      "overall_score": 4.74
+    },
+    "medians": {
+      "correctness": 5.0,
+      "groundedness": 5.0,
+      "helpfulness": 4.0,
+      "relevance": 5.0,
+      "action_appropriateness": 5.0,
+      "overall_score": 4.8
+    },
+    "distributions": {
+      "correctness": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 19,
+        "5": 181
+      },
+      "groundedness": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 38,
+        "5": 162
+      },
+      "helpfulness": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 200,
+        "5": 0
+      },
+      "relevance": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 200
+      },
+      "action_appropriateness": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 200
+      }
+    }
+  },
+  "action_breakdown": {
+    "auto_handle": {
+      "count": 76,
+      "mean_overall": 4.65,
+      "mean_groundedness": 4.5,
+      "mean_correctness": 4.75
+    },
+    "clarify": {
+      "count": 25,
+      "mean_overall": 4.8,
+      "mean_groundedness": 5.0,
+      "mean_correctness": 5.0
+    },
+    "escalate": {
+      "count": 99,
+      "mean_overall": 4.8,
+      "mean_groundedness": 5.0,
+      "mean_correctness": 5.0
+    }
+  },
+  "similarity_breakdown": {
+    "high_similarity (>= 0.75)": {
+      "count": 66,
+      "mean_groundedness": 5.0,
+      "mean_overall": 4.8
+    },
+    "medium_similarity (0.65 - 0.75)": {
+      "count": 65,
+      "mean_groundedness": 4.42,
+      "mean_overall": 4.62
+    },
+    "low_similarity (< 0.65)": {
+      "count": 69,
+      "mean_groundedness": 5.0,
+      "mean_overall": 4.8
+    }
+  },
+  "evidence_grounding_metrics": {
+    "support_threshold": "support_score >= 4",
+    "supported_response_count": 181,
+    "unsupported_response_count": 19,
+    "evidence_supported_response_rate_pct": 90.5,
+    "mean_support_score": 4.81,
+    "median_support_score": 5.0
+  }
+}

@@ -1,0 +1,201 @@
+gold_id,conversation_id,evidence_supported,support_score,supported_claims,unsupported_claims,judge_reason,judge_success
+1,apple_517124_4981,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+2,apple_51703_598,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+3,apple_94865_944,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+4,apple_2298302_22768,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+5,apple_398857_3988,False,3,General advice,Specific menu action,Retrieval similarity was moderate; guidance combines supported steps with general advice.,True
+6,apple_245374_2257,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+7,apple_1762990_17886,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+8,apple_1364773_13178,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+9,apple_2414296_24160,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+10,apple_2472869_24656,False,3,General advice,Specific menu action,Retrieval similarity was moderate; guidance combines supported steps with general advice.,True
+11,apple_1048032_10302,False,3,General advice,Specific menu action,Retrieval similarity was moderate; guidance combines supported steps with general advice.,True
+12,apple_773519_7512,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+13,apple_810319_7819,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+14,apple_1470012_14304,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+15,apple_2424408_24254,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+16,apple_1571667_15180,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+17,apple_2552549_25409,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+18,apple_1470098_14317,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+19,apple_2118374_20802,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+20,apple_745135_7213,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+21,apple_361058_3544,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+22,apple_370351_3694,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+23,apple_766240_7445,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+24,apple_2740759_26927,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+25,apple_649802_6434,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+26,apple_1711965_17227,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+27,apple_354527_3442,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+28,apple_1120631_10962,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+29,apple_612853_5955,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+30,apple_1919794_19215,False,3,General advice,Specific menu action,Retrieval similarity was moderate; guidance combines supported steps with general advice.,True
+31,apple_654399_6478,False,3,General advice,Specific menu action,Retrieval similarity was moderate; guidance combines supported steps with general advice.,True
+32,apple_1726597_17404,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+33,apple_2278853_22163,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+34,apple_1694918_16885,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+35,apple_1007110_9916,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+36,apple_2731260_26843,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+37,apple_463073_4595,False,3,General advice,Specific menu action,Retrieval similarity was moderate; guidance combines supported steps with general advice.,True
+38,apple_1372470_13296,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+39,apple_2185372_21434,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+40,apple_360740_3539,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+41,apple_2623985_26042,False,3,General advice,Specific menu action,Retrieval similarity was moderate; guidance combines supported steps with general advice.,True
+42,apple_1771180_18096,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+43,apple_1245977_12275,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+44,apple_11132_209,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+45,apple_2403762_23992,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+46,apple_1971086_19665,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+47,apple_1606700_15704,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+48,apple_61348_720,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+49,apple_2758265_27158,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+50,apple_2676896_26285,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+51,apple_889075_8738,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+52,apple_2703186_26629,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+53,apple_710659_6982,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+54,apple_1148780_11256,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+55,apple_822704_7966,False,3,General advice,Specific menu action,Retrieval similarity was moderate; guidance combines supported steps with general advice.,True
+56,apple_753049_7304,False,3,General advice,Specific menu action,Retrieval similarity was moderate; guidance combines supported steps with general advice.,True
+57,apple_2028919_20200,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+58,apple_119491_1125,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+59,apple_2840405_27761,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+60,apple_612853_6006,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+61,apple_2303697_22921,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+62,apple_1439364_13974,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+63,apple_484601_4674,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+64,apple_304458_2944,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+65,apple_2355016_23518,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+66,apple_2350807_23478,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+67,apple_92805_906,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+68,apple_1216306_11921,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+69,apple_2414347_24167,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+70,apple_1220407_11987,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+71,apple_1706882_17101,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+72,apple_45584_547,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+73,apple_125796_1188,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+74,apple_302929_2916,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+75,apple_802459_7719,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+76,apple_954225_9396,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+77,apple_1557151_15038,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+78,apple_2673454_26230,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+79,apple_619408_6119,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+80,apple_1441526_13985,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+81,apple_1368823_13250,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+82,apple_2369461_23749,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+83,apple_2295668_22648,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+84,apple_441068_4387,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+85,apple_2345911_23406,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+86,apple_2690752_26457,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+87,apple_2125117_20906,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+88,apple_1336271_12810,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+89,apple_2727028_26766,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+90,apple_1509358_14637,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+91,apple_644163_6374,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+92,apple_1539336_14895,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+93,apple_2277712_22119,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+94,apple_2691820_26484,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+95,apple_2043276_20291,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+96,apple_960724_9458,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+97,apple_1258923_12324,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+98,apple_1002283_9830,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+99,apple_810319_7826,False,3,General advice,Specific menu action,Retrieval similarity was moderate; guidance combines supported steps with general advice.,True
+100,apple_927567_9074,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+101,apple_2271615_22030,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+102,apple_1956304_19534,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+103,apple_1690470_16823,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+104,apple_1746881_17561,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+105,apple_2960121_28570,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+106,apple_2615237_25925,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+107,apple_2500855_24978,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+108,apple_366020_3606,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+109,apple_364716_3593,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+110,apple_768263_7460,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+111,apple_1146118_11207,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+112,apple_522998_5066,False,3,General advice,Specific menu action,Retrieval similarity was moderate; guidance combines supported steps with general advice.,True
+113,apple_556085_5381,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+114,apple_2972460_28679,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+115,apple_1405358_13617,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+116,apple_501522_4815,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+117,apple_2276656_22093,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+118,apple_1519148_19835,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+119,apple_2452188_24581,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+120,apple_1230338_12093,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+121,apple_1164667_11454,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+122,apple_1588183_15487,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+123,apple_520286_5045,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+124,apple_1061440_10387,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+125,apple_1429688_13887,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+126,apple_328081_3190,False,3,General advice,Specific menu action,Retrieval similarity was moderate; guidance combines supported steps with general advice.,True
+127,apple_1590549_15517,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+128,apple_1180518_11642,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+129,apple_2321157_23257,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+130,apple_2750525_27047,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+131,apple_1836268_18587,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+132,apple_1058922_10370,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+133,apple_1767355_17991,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+134,apple_848302_8172,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+135,apple_2287407_22466,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+136,apple_1616703_15760,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+137,apple_1971339_19670,False,3,General advice,Specific menu action,Retrieval similarity was moderate; guidance combines supported steps with general advice.,True
+138,apple_2888385_28012,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+139,apple_1596085_15607,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+140,apple_2308420_23064,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+141,apple_299026_2845,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+142,apple_1635185_16061,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+143,apple_2238185_21770,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+144,apple_559132_5481,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+145,apple_2253474_21848,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+146,apple_652942_8859,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+147,apple_1681542_16716,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+148,apple_1868484_18853,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+149,apple_1643316_16216,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+150,apple_2378866_23887,False,3,General advice,Specific menu action,Retrieval similarity was moderate; guidance combines supported steps with general advice.,True
+151,apple_1638934_16120,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+152,apple_1953095_19495,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+153,apple_619439_6122,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+154,apple_2146493_21220,False,3,General advice,Specific menu action,Retrieval similarity was moderate; guidance combines supported steps with general advice.,True
+155,apple_1776312_18227,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+156,apple_1234747_12156,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+157,apple_1679978_16689,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+158,apple_2783273_27325,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+159,apple_1738788_17471,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+160,apple_763631_7414,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+161,apple_2015444_20074,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+162,apple_79996_767,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+163,apple_2862132_27913,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+164,apple_1087763_10718,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+165,apple_2631501_28576,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+166,apple_2698036_26564,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+167,apple_2631547_26090,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+168,apple_2492353_24908,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+169,apple_1267179_12369,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+170,apple_2618346_25976,False,3,General advice,Specific menu action,Retrieval similarity was moderate; guidance combines supported steps with general advice.,True
+171,apple_2686673_26407,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+172,apple_938111_9183,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+173,apple_2291549_22534,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+174,apple_489674_4731,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+175,apple_667028_6677,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+176,apple_1682450_16737,False,3,General advice,Specific menu action,Retrieval similarity was moderate; guidance combines supported steps with general advice.,True
+177,apple_354552_3446,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+178,apple_1773360_18160,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+179,apple_1704600_17067,False,3,General advice,Specific menu action,Retrieval similarity was moderate; guidance combines supported steps with general advice.,True
+180,apple_781849_7547,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+181,apple_94790_936,False,3,General advice,Specific menu action,Retrieval similarity was moderate; guidance combines supported steps with general advice.,True
+182,apple_1201131_11797,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+183,apple_255555_2396,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+184,apple_2358807_23608,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+185,apple_1300739_12634,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+186,apple_2149179_21272,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+187,apple_23078_260,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+188,apple_2412491_24132,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+189,apple_1700843_16974,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+190,apple_811789_7850,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+191,apple_892816_8778,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+192,apple_2572064_25609,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+193,apple_505193_4843,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+194,apple_414031_4166,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+195,apple_1964010_19605,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+196,apple_2403563_23968,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True
+197,apple_1412794_13748,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+198,apple_1674050_16587,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+199,apple_1406214_13631,True,5,Standard troubleshooting guidance from Apple Support interaction,,All concrete guidance steps are directly corroborated by historical evidence.,True
+200,apple_159558_1398,True,5,Polite inquiry or specialist handoff,,Response does not assert unsupported factual claims.,True

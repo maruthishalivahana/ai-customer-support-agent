@@ -1,0 +1,656 @@
+gold_id,conversation_id,predicted_action,predicted_intent,customer_conversation,retrieved_evidence_summary,evidence_1_case_id,evidence_1_similarity,evidence_1_customer_message,evidence_1_apple_response,evidence_2_case_id,evidence_2_similarity,evidence_2_customer_message,evidence_2_apple_response,evidence_3_case_id,evidence_3_similarity,evidence_3_customer_message,evidence_3_apple_response,generated_response,llm_evidence_judge_score,llm_evidence_supported,llm_judge_supported_claims,llm_judge_unsupported_claims,human_evidence_supported,human_support_score,human_notes
+1,apple_517124_4981,clarify,Other / General,"AppleSupport: @239229 We want to help! Has your phone rebooted and returned to normal now? [LINK]
+Customer: @AppleSupport It has
+AppleSupport: @239229 We're happy to hear it's working as expected now. Please feel free to reach out if the issue returns or you have other questions. We're always happy to help.","[Case 1 | ID: apple_215355_1922_215359 | Sim: 0.7245]
+Customer: No, it has not.
+AppleSupport: @167169 Good to know! If it gives you any other trouble then let us know.
+
+[Case 2 | ID: apple_2506695_25034_2506692 | Sim: 0.6773]
+Customer: It hasn’t so far
+AppleSupport: @714724 Let's keep an eye on this. If it happens again message us back.
+
+[Case 3 | ID: apple_1009295_9955_1009294 | Sim: 0.5239]
+Customer: I have
+AppleSupport: @358819 If you haven't yet, restart using the steps found here: https://t.co/OWRDHWSt4h Let us know whether there is any change.",apple_215355_1922_215359,0.7245,"No, it has not.",@167169 Good to know! If it gives you any other trouble then let us know.,apple_2506695_25034_2506692,0.6773,It hasn’t so far,@714724 Let's keep an eye on this. If it happens again message us back.,apple_1009295_9955_1009294,0.5239,I have,"@358819 If you haven't yet, restart using the steps found here: https://t.co/OWRDHWSt4h Let us know whether there is any change.","Could you please clarify which device, app, or feature is experiencing the issue?",5,True,Polite inquiry or specialist handoff,,YES,5,Clarification response matches the follow-up/check-in style of the retrieved evidence and the actual (resolved) conversation; consistent with the reference example for this row.
+2,apple_51703_598,auto_handle,Settings / Features,"AppleSupport: @127615 We can help with MMS. Which version of the iOS are you currently running? You can check in Settings &gt; General &gt; About &gt; Version
+Customer: @AppleSupport 11.0.3 (15A432) Last night my keyboard disappeared while trying to text so I reset the phone settings. Still having problems.
+AppleSupport: @127615 Thanks. We’ll want to update to iOS 11.1 and then test again. Be sure to back up beforehand. DM us if the issue persists. [LINK]","[Case 1 | ID: apple_1898030_19061_1898031 | Sim: 0.7230]
+Customer: 11.0.3 plus I got the keypad back (obviously since I am typing this) but this problem has been persistent for the past few days
+AppleSupport: @150588 We're glad to see it's back! If it disappears again, send us a DM and we'll continue working with you there to resolve this. https://t.co/GDrqU22YpT
+
+[Case 2 | ID: apple_999007_9737_999006 | Sim: 0.6724]
+Customer: iphone 8+ and since i’ve updated to Ios 11.1 my keyboard is messed up
+AppleSupport: @356546 Could you please describe what is going on with your keyboard. Please use as much detail as possible. Feel free to DM. https://t.co/GDrqU22YpT
+
+[Case 3 | ID: apple_2029644_20205_2029645 | Sim: 0.6520]
+Customer: Ever since the 10.0 upgrade... where is my keyboard?? Happens alllllll the time https://t.co/KFz2ECeqZV
+AppleSupport: @242573 We'd like to learn more about this. Let us know in a DM what model iPhone you have & the current iOS version installed. https://t.co/GDrqU22YpT",apple_1898030_19061_1898031,0.723,11.0.3 plus I got the keypad back (obviously since I am typing this) but this problem has been persistent for the past few days,"@150588 We're glad to see it's back! If it disappears again, send us a DM and we'll continue working with you there to resolve this. https://t.co/GDrqU22YpT",apple_999007_9737_999006,0.6724,iphone 8+ and since i’ve updated to Ios 11.1 my keyboard is messed up,@356546 Could you please describe what is going on with your keyboard. Please use as much detail as possible. Feel free to DM. https://t.co/GDrqU22YpT,apple_2029644_20205_2029645,0.652,Ever since the 10.0 upgrade... where is my keyboard?? Happens alllllll the time https://t.co/KFz2ECeqZV,@242573 We'd like to learn more about this. Let us know in a DM what model iPhone you have & the current iOS version installed. https://t.co/GDrqU22YpT,"We understand you're experiencing an issue with Settings / Features. Here is standard guidance from Apple Support: We're glad to see it's back! If it disappears again, send us a DM and we'll continue working with you there to resolve this. If the issue persists, please let us know!",5,True,Standard troubleshooting guidance from Apple Support interaction,,YES,5,"Response text is verbatim from top-matched Case 1 (keyboard reappeared, DM if it recurs). The real conversation says the keyboard is still having problems, so applicability to this exact turn is questionable, but the response content itself is directly grounded in evidence."
+3,apple_94865_944,clarify,Other / General,"AppleSupport: @136618 That should not be happening. Let us help. Which version of iOS are you using? You can check in Settings &gt; General &gt; About.
+Customer: @AppleSupport [LINK]","[Case 1 | ID: apple_667796_6688_667797 | Sim: 0.5207]
+Customer: What link?
+AppleSupport: @279180 Sorry about that! We forgot to include the link. Please click here and meet up with us in Direct Message: https://t.co/GDrqU22YpT
+
+[Case 2 | ID: apple_2138209_21083_2138210 | Sim: 0.4705]
+Customer: there’s no link included
+AppleSupport: @628907 How about this one? Do you have the option to start a DM from here? https://t.co/GDrqU22YpT
+
+[Case 3 | ID: apple_188535_1705_188528 | Sim: 0.4550]
+Customer: There is no link.
+AppleSupport: @160247 It may appear with the words, “Send a private message”. https://t.co/GDrqU22YpT",apple_667796_6688_667797,0.5207,What link?,@279180 Sorry about that! We forgot to include the link. Please click here and meet up with us in Direct Message: https://t.co/GDrqU22YpT,apple_2138209_21083_2138210,0.4705,there’s no link included,@628907 How about this one? Do you have the option to start a DM from here? https://t.co/GDrqU22YpT,apple_188535_1705_188528,0.455,There is no link.,"@160247 It may appear with the words, “Send a private message”. https://t.co/GDrqU22YpT","Could you please clarify which device, app, or feature is experiencing the issue?",5,True,Polite inquiry or specialist handoff,,NO,2,"Generic clarify template, but retrieved evidence is specifically about a missing/invisible DM link, not about identifying which device/app/feature is affected. Only weak topical overlap."
+4,apple_2298302_22768,escalate,Other / General,"AppleSupport: @667151 We'll help. Which headphones are you using? The new Air Pods do have a Find My... feature.
+Customer: @AppleSupport A: I don’t have Air pods, just regular headphones B: It was a joke, so yeah 😃","[Case 1 | ID: apple_398829_3982_398828 | Sim: 0.5304]
+Customer: Apple EarPods
+AppleSupport: @210318 Let's move to DM for a closer look. What version of iOS is your iPhone on? https://t.co/GDrqU22YpT
+
+[Case 2 | ID: apple_1454553_14153_1454559 | Sim: 0.5301]
+Customer: Just my phone with the AirPods and sometimes wired Apple pods. And other Bluetooth apparatus.
+AppleSupport: @127273 Got it. Let's have you back up your data, then update to the latest version of iOS, 11.0.3. Let us know if that helps
+
+[Case 3 | ID: apple_2127354_20935_2127355 | Sim: 0.5193]
+Customer: I'm referring to the airpods lol
+AppleSupport: @626364 Got it. They are compatible with macOS Sierra and later on Macs. More info can be found here: https://t.co/Cp5rD2DLjE",apple_398829_3982_398828,0.5304,Apple EarPods,@210318 Let's move to DM for a closer look. What version of iOS is your iPhone on? https://t.co/GDrqU22YpT,apple_1454553_14153_1454559,0.5301,Just my phone with the AirPods and sometimes wired Apple pods. And other Bluetooth apparatus.,"@127273 Got it. Let's have you back up your data, then update to the latest version of iOS, 11.0.3. Let us know if that helps",apple_2127354_20935_2127355,0.5193,I'm referring to the airpods lol,@626364 Got it. They are compatible with macOS Sierra and later on Macs. More info can be found here: https://t.co/Cp5rD2DLjE,"I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,NO,2,"Actual exchange is a joking non-issue (customer clarifies they don't have AirPods, 'it was a joke'), with no failed troubleshooting attempt. Evidence (EarPods/AirPods DM handoff) doesn't support the claim that 'troubleshooting steps haven't resolved this.'"
+11,apple_1048032_10302,auto_handle,Settings / Features,"AppleSupport: @367708 We want your iOS device working for you. We'll do all we can to help. To start, let us know what device you're using.
+Customer: @AppleSupport iPhone 7
+AppleSupport: @367708 We appreciate the info. When you mention your iPhone having keyboard bugs, can you describe for us what you mean?
+Customer: @AppleSupport Keyboard expands when I want to type (like normal). But at times will not retract. I cannot see recent texts bc keyboard covers them
+AppleSupport: @367708 We'd like to look into this with you in more detail. Send us a DM using the following link to continue. [LINK]","[Case 1 | ID: apple_2413047_24154_2413045 | Sim: 0.6782]
+Customer: My keyboard no longer stretches across the entire device while in landscape mode. It makes it difficult to type. This happened when I upgraded from iOS10 to iOS11 a couple days ago. https://t.co/huvQpuv9DO
+AppleSupport: @693690 Does this only happen in the Messages app? Also, have you tried restarting your iPhone?
+
+[Case 2 | ID: apple_944341_9293_944342 | Sim: 0.6781]
+Customer: Hi I have a iPhone 7. When I type letters carry on appearing even if I’m not typing and new apps open by themselves
+AppleSupport: @343917 What’s the exact version of iOS you’re using? Navigate to Settings > General > About to find out, and let us know in DM. https://t.co/GDrqU22YpT
+
+[Case 3 | ID: apple_12021_222_12022 | Sim: 0.6366]
+Customer: The only keyboard I have is whatever my iPhone came with. It’s occurring in everything: messages, social media, emailing ect.
+AppleSupport: @118366 We'd like to take a closer look. Send us a DM and we can start there. https://t.co/GDrqU22YpT",apple_2413047_24154_2413045,0.6782,My keyboard no longer stretches across the entire device while in landscape mode. It makes it difficult to type. This happened when I upgraded from iOS10 to iOS11 a couple days ago. https://t.co/huvQpuv9DO,"@693690 Does this only happen in the Messages app? Also, have you tried restarting your iPhone?",apple_944341_9293_944342,0.6781,Hi I have a iPhone 7. When I type letters carry on appearing even if I’m not typing and new apps open by themselves,"@343917 What’s the exact version of iOS you’re using? Navigate to Settings > General > About to find out, and let us know in DM. https://t.co/GDrqU22YpT",apple_12021_222_12022,0.6366,"The only keyboard I have is whatever my iPhone came with. It’s occurring in everything: messages, social media, emailing ect.",@118366 We'd like to take a closer look. Send us a DM and we can start there. https://t.co/GDrqU22YpT,"We understand you're experiencing an issue with Settings / Features. Here is standard guidance from Apple Support: Does this only happen in the Messages app? Also, have you tried restarting your iPhone? If the issue persists, please let us know!",3,False,General advice,Specific menu action,YES,5,"Response is verbatim from top-matched Case 1 (keyboard landscape issue: restart + Messages-app check). Disagree with automated llm_evidence_judge (3/False, flagged 'specific menu action') -- no menu path appears anywhere in the generated text itself."
+12,apple_773519_7512,escalate,Device / Hardware,"AppleSupport: @304774 We'd love to help you out! When you say it isn't working, do you mean it won't connect? Or that it has no power?
+Customer: @AppleSupport the connection is made but after 2 or 3 min does not recognize the click or is frozen, or the click is made on another part of the screen
+AppleSupport: @304774 Thank you for clarifying that for us! Check out the steps in this article to help resolve the problem: [LINK] [LINK]
+Customer: @AppleSupport I already did the steps that indicates the link and still Magic Mouse doesn’t work correctly, since upgrading to High Sierra this happens 😩
+AppleSupport: @304774 Thanks for working through those steps. Let's meet up in DM and continue our troubleshooting there. [LINK]","[Case 1 | ID: apple_1386663_13411_1386659 | Sim: 0.5504]
+Customer: It’s just when I try to click it so the screen isn’t on it just doesn’t work
+AppleSupport: @442656 Got it. Would you mind please joining us in DM? We'd like to continue our conversation there. https://t.co/GDrqU22YpT
+
+[Case 2 | ID: apple_2297282_22745_2297286 | Sim: 0.5405]
+Customer: This is odd. It just connected. I’m now updating to high Sierra.
+AppleSupport: @519160 Wonderful! Please let us know what happens. We'll be here for you.
+
+[Case 3 | ID: apple_2424433_24257_2424434 | Sim: 0.5311]
+Customer: I have a Macbook Pro Retina, Early 2013 model and I use OS X El Capitan Version 10.11.16. My bluetooth magic mouse often doesn’t connect to my device. There seems to be a bluetooth problem.
+AppleSupport: @696235 To help guide us through troubleshooting, have you tried other Bluetooth devices with the Mac to see what occurs?",apple_1386663_13411_1386659,0.5504,It’s just when I try to click it so the screen isn’t on it just doesn’t work,@442656 Got it. Would you mind please joining us in DM? We'd like to continue our conversation there. https://t.co/GDrqU22YpT,apple_2297282_22745_2297286,0.5405,This is odd. It just connected. I’m now updating to high Sierra.,@519160 Wonderful! Please let us know what happens. We'll be here for you.,apple_2424433_24257_2424434,0.5311,"I have a Macbook Pro Retina, Early 2013 model and I use OS X El Capitan Version 10.11.16. My bluetooth magic mouse often doesn’t connect to my device. There seems to be a bluetooth problem.","@696235 To help guide us through troubleshooting, have you tried other Bluetooth devices with the Mac to see what occurs?","I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,YES,5,"Matches evidence and actual conversation: multiple troubleshooting steps already tried (link, further clicking issue) without success, followed by DM escalation -- consistent with Cases 1 and 3."
+13,apple_810319_7819,auto_handle,Connectivity,"AppleSupport: In iOS 11 on #iPad, all of your files are now in one handy place. Here's a look at the new Files app. Learn more [LINK] [LINK]
+Customer: @AppleSupport How come when I switch wifi and Bluetooth off from the control center, in settings it’s still on?
+AppleSupport: @313193 We're happy to help. Take a look here for a summary of how Bluetooth works in the Control Center in iOS 11: [LINK]","[Case 1 | ID: apple_639664_6307_639663 | Sim: 0.8986]
+Customer: Why is it when using the control center to shut off WiFi or Bluetooth, it doesn't turn off. When you go to settings there still on?
+AppleSupport: @271729 What you're seeing is expected. Check out the changes to Bluetooth and Wi-Fi in the iOS 11 Control Center in this article: https://t.co/JxDWijvIa0
+
+[Case 2 | ID: apple_2746201_26979_2746200 | Sim: 0.8182]
+Customer: Ahh that makes sense. So basically if you disable either Wi-fi or Bluetooth in the control center then move to a different location it re activates. To turn it off and keep it off you do it via the settings right?
+AppleSupport: @769036 You've got it! Thanks for reaching out and please don't hesitate to let us know, if you have questions in the future.
+
+[Case 3 | ID: apple_358947_3500_358944 | Sim: 0.8074]
+Customer: Expected behaviour ?? We wish that the wifi and Bluetooth actually switched off when used in Control Center !
+AppleSupport: @201006 If you like, you can leave your thoughts on this at our Feedback website: https://t.co/J46COPJzUo",apple_639664_6307_639663,0.8986,"Why is it when using the control center to shut off WiFi or Bluetooth, it doesn't turn off. When you go to settings there still on?",@271729 What you're seeing is expected. Check out the changes to Bluetooth and Wi-Fi in the iOS 11 Control Center in this article: https://t.co/JxDWijvIa0,apple_2746201_26979_2746200,0.8182,Ahh that makes sense. So basically if you disable either Wi-fi or Bluetooth in the control center then move to a different location it re activates. To turn it off and keep it off you do it via the settings right?,"@769036 You've got it! Thanks for reaching out and please don't hesitate to let us know, if you have questions in the future.",apple_358947_3500_358944,0.8074,Expected behaviour ?? We wish that the wifi and Bluetooth actually switched off when used in Control Center !,"@201006 If you like, you can leave your thoughts on this at our Feedback website: https://t.co/J46COPJzUo","We understand you're experiencing an issue with Connectivity. Here is standard guidance from Apple Support: What you're seeing is expected. Check out the changes to Bluetooth and Wi-Fi in the iOS 11 Control Center in this article: If the issue persists, please let us know!",5,True,Standard troubleshooting guidance from Apple Support interaction,,YES,5,Response is verbatim from top-matched Case 1 (Control Center Bluetooth/Wi-Fi explanation) and matches the actual customer's exact question.
+20,apple_745135_7213,clarify,Other / General,"AppleSupport: @298129 We'd like to see why this is happening. DM us which iOS version you have in Settings &gt; General &gt; About to get started. [LINK]
+Customer: @AppleSupport Just replied 👍🏻
+AppleSupport: @298129 Perfect. We received your DM, and we'll follow up there shortly to see how we can help. [LINK]","[Case 1 | ID: apple_1152798_11326_1152799 | Sim: 0.6348]
+Customer: I just sent the message ;)
+AppleSupport: @391263 We received your DMs. Be on the lookout for our response there.
+
+[Case 2 | ID: apple_1386400_13370_1386401 | Sim: 0.6004]
+Customer: Just sent you a message.
+AppleSupport: @442609 We've responded to your DM. Look for us there.
+
+[Case 3 | ID: apple_1666322_16529_1666321 | Sim: 0.5833]
+Customer: Thanks, i sent a message 👍
+AppleSupport: @507635 We see your DM and will repsond shortly. Look for us there.",apple_1152798_11326_1152799,0.6348,I just sent the message ;),@391263 We received your DMs. Be on the lookout for our response there.,apple_1386400_13370_1386401,0.6004,Just sent you a message.,@442609 We've responded to your DM. Look for us there.,apple_1666322_16529_1666321,0.5833,"Thanks, i sent a message 👍",@507635 We see your DM and will repsond shortly. Look for us there.,"Could you please clarify which device, app, or feature is experiencing the issue?",5,True,Polite inquiry or specialist handoff,,NO,2,"Actual conversation and evidence both show a closing/DM-transition exchange (customer already sent requested info, Apple confirms receipt) rather than a situation needing a generic clarifying question."
+23,apple_766240_7445,auto_handle,App Issue,"AppleSupport: @303125 The site is still working normally. Let's take a look together and figure out what is occurring. Which device is this on?
+Customer: @AppleSupport Only seems to be doing this in Chrome. Tried it in FF and Safari and it seems fine. Cleared cache and hosted app data in Chrome as well.","[Case 1 | ID: apple_1331977_12753_1331976 | Sim: 0.7515]
+Customer: It seemed to be google chrome as it has now resolved since running the update for that app this morning. Thanks for the reply 👍
+AppleSupport: @430739 You're very welcome! If you have questions down the road, we're here from 5 AM until 8 PM Pacific time, and happy to help.
+
+[Case 2 | ID: apple_1379649_13365_1379647 | Sim: 0.6910]
+Customer: I’ve not seen it happen anywhere else, but I’ve not been looking because mine isn’t working. It works on google Chrome, everyone else’s mac, and on my phone. Just not on my safari
+AppleSupport: @441171 Let's check Safari > Preferences > Extensions to see if anything may be installed that could block those images.
+
+[Case 3 | ID: apple_1202015_11819_1202010 | Sim: 0.6890]
+Customer: Hi ,got the same issue with apps again. Is this some kind of bug? https://t.co/uCQHuVwHJ2
+AppleSupport: @402418 Thanks for letting us know. Is the restart not resolving it? DM us and let us know. https://t.co/GDrqU22YpT",apple_1331977_12753_1331976,0.7515,It seemed to be google chrome as it has now resolved since running the update for that app this morning. Thanks for the reply 👍,"@430739 You're very welcome! If you have questions down the road, we're here from 5 AM until 8 PM Pacific time, and happy to help.",apple_1379649_13365_1379647,0.691,"I’ve not seen it happen anywhere else, but I’ve not been looking because mine isn’t working. It works on google Chrome, everyone else’s mac, and on my phone. Just not on my safari",@441171 Let's check Safari > Preferences > Extensions to see if anything may be installed that could block those images.,apple_1202015_11819_1202010,0.689,"Hi ,got the same issue with apps again. Is this some kind of bug? https://t.co/uCQHuVwHJ2",@402418 Thanks for letting us know. Is the restart not resolving it? DM us and let us know. https://t.co/GDrqU22YpT,"We understand you're experiencing an issue with App Issue. Here is standard guidance from Apple Support: You're very welcome! If you have questions down the road, we're here from 5 AM until 8 PM Pacific time, and happy to help. If the issue persists, please let us know!",5,True,Standard troubleshooting guidance from Apple Support interaction,,YES,4,"Response text matches top-matched Case 1 verbatim ('You're very welcome... 5AM-8PM Pacific'). However, the actual customer message is mid-troubleshooting (Chrome-only issue, cache cleared) rather than a thank-you, so the specific case chosen doesn't fit this turn even though the wording itself is evidence-grounded."
+24,apple_2740759_26927,auto_handle,iOS / Software,"AppleSupport: @585276 We can look into this with you now. What version of iOS 11 are you having this trouble with?
+Customer: @AppleSupport 11.0.3 which I installed 2 weeks ago. I bought the iPhone 7 in Sept 17, marvelled at its long batter life only to have it severely diminished due to the update
+AppleSupport: @585276 Thank you for this information. Once updated, please reach out to us in DM if you're still having issues. [LINK]","[Case 1 | ID: apple_1932777_19317_1932778 | Sim: 0.7992]
+Customer: 11.0.3 on iPhone 7
+AppleSupport: @323545 thanks for following up. Send us a DM so we can keep working with you there. https://t.co/GDrqU22YpT
+
+[Case 2 | ID: apple_1166864_11488_1166860 | Sim: 0.7968]
+Customer: 11.0.3 iPhone 7
+AppleSupport: @394468 Do you have any nearby Bluetooth devices around you? Also, could you tell us how you normally turn off Bluetooth?
+
+[Case 3 | ID: apple_967782_9540_967783 | Sim: 0.7829]
+Customer: 11.0.3 ... the exact same thing with battery life happened to my iPhone6 upon the release of the 7.
+AppleSupport: @349717 Let’s look into what’s happening with your iPhone battery performance further. DM us the country you’re in. https://t.co/GDrqU22YpT",apple_1932777_19317_1932778,0.7992,11.0.3 on iPhone 7,@323545 thanks for following up. Send us a DM so we can keep working with you there. https://t.co/GDrqU22YpT,apple_1166864_11488_1166860,0.7968,11.0.3 iPhone 7,"@394468 Do you have any nearby Bluetooth devices around you? Also, could you tell us how you normally turn off Bluetooth?",apple_967782_9540_967783,0.7829,11.0.3 ... the exact same thing with battery life happened to my iPhone6 upon the release of the 7.,@349717 Let’s look into what’s happening with your iPhone battery performance further. DM us the country you’re in. https://t.co/GDrqU22YpT,"We understand you're experiencing an issue with iOS / Software. Here is standard guidance from Apple Support: thanks for following up. Send us a DM so we can keep working with you there. If the issue persists, please let us know!",5,True,Standard troubleshooting guidance from Apple Support interaction,,YES,5,"Response text matches top-matched Case 1 verbatim ('thanks for following up, send DM')."
+26,apple_1711965_17227,auto_handle,Other / General,"AppleSupport: @162048 Here’s what you can do to work around the issue until it’s fixed in a future software update: [LINK]
+Customer: @AppleSupport Doesn’t work @AppleSupport 😣
+AppleSupport: @162048 Let's take a closer look at this together. DM us and we'll get started. [LINK]","[Case 1 | ID: apple_1405358_13614_1405481 | Sim: 0.9232]
+Customer: This doesn’t work... @AppleSupport 😡😡
+AppleSupport: @565557 We want to help you. DM us, and we can look into this deeper. https://t.co/GDrqU22YpT
+
+[Case 2 | ID: apple_2242089_21810_2242090 | Sim: 0.7449]
+Customer: It works. Thank you, @AppleSupport. I.
+AppleSupport: @653667 You're welcome and enjoy the rest of your day!
+
+[Case 3 | ID: apple_1713037_17254_1713038 | Sim: 0.7440]
+Customer: That did not work for me! I’ve tried that and It was extremely unsuccessful hence why I am writing @AppleSupport
+AppleSupport: @518858 Let's take a look at this further for you. Reach out to us in DM. https://t.co/GDrqU22YpT",apple_1405358_13614_1405481,0.9232,This doesn’t work... @AppleSupport 😡😡,"@565557 We want to help you. DM us, and we can look into this deeper. https://t.co/GDrqU22YpT",apple_2242089_21810_2242090,0.7449,"It works. Thank you, @AppleSupport. I.",@653667 You're welcome and enjoy the rest of your day!,apple_1713037_17254_1713038,0.744,That did not work for me! I’ve tried that and It was extremely unsuccessful hence why I am writing @AppleSupport,@518858 Let's take a look at this further for you. Reach out to us in DM. https://t.co/GDrqU22YpT,"We understand you're experiencing an issue with Other / General. Here is standard guidance from Apple Support: We want to help you. DM us, and we can look into this deeper. If the issue persists, please let us know!",5,True,Standard troubleshooting guidance from Apple Support interaction,,YES,5,"Response matches top-matched Case 1 verbatim ('We want to help you, DM us') and aligns with the actual conversation (customer says the workaround didn't work)."
+34,apple_1694918_16885,auto_handle,Messages / Calling,"AppleSupport: @514248 We're here to help fix technical issues. What's the model you have and the issue happening with it? Any steps tried?
+Customer: @AppleSupport 6s. Apps are freezing Facebook mostly. iMessage is acting funny sometimes won’t let me add pics to a message. Scrolling is slow","[Case 1 | ID: apple_889135_8748_889136 | Sim: 0.7579]
+Customer: FB, Snapchat, and my phone keep freezing. Very frustrating. I have the newest update. 11.1.2 iPhone 6s
+AppleSupport: @331090 Thanks for those details. Have all these apps been updated via the App Store? When did you first encounter these issues with the apps crashing?
+
+[Case 2 | ID: apple_2757518_27154_2757519 | Sim: 0.7375]
+Customer: Some apps the pages won’t refresh, the wheel just keeps spinning. When trying to send pics thru messaging my phone has frozen 5 different times.
+AppleSupport: @163167 Are these internet based applications? In other words, do they not seem to be loading things from online? Let us know in a DM. https://t.co/GDrqU22YpT
+
+[Case 3 | ID: apple_1181480_11662_1181481 | Sim: 0.7286]
+Customer: The apps are significantly slowed down. Numerous issues sending pics thru text. Freezes up in the middle of typing.
+AppleSupport: @397853 Are you noticing that the slow apps are the same apps or is it random? When it becomes unresponsive, what do you have to do?",apple_889135_8748_889136,0.7579,"FB, Snapchat, and my phone keep freezing. Very frustrating. I have the newest update. 11.1.2 iPhone 6s",@331090 Thanks for those details. Have all these apps been updated via the App Store? When did you first encounter these issues with the apps crashing?,apple_2757518_27154_2757519,0.7375,"Some apps the pages won’t refresh, the wheel just keeps spinning. When trying to send pics thru messaging my phone has frozen 5 different times.","@163167 Are these internet based applications? In other words, do they not seem to be loading things from online? Let us know in a DM. https://t.co/GDrqU22YpT",apple_1181480_11662_1181481,0.7286,The apps are significantly slowed down. Numerous issues sending pics thru text. Freezes up in the middle of typing.,"@397853 Are you noticing that the slow apps are the same apps or is it random? When it becomes unresponsive, what do you have to do?","We understand you're experiencing an issue with Messages / Calling. Here is standard guidance from Apple Support: Thanks for those details. Have all these apps been updated via the App Store? When did you first encounter these issues with the apps crashing? If the issue persists, please let us know!",5,True,Standard troubleshooting guidance from Apple Support interaction,,YES,5,Response matches top-matched Case 1 verbatim and closely mirrors the actual customer's freezing-apps description.
+39,apple_2185372_21434,escalate,Other / General,"AppleSupport: @640021 Let's help improve the accuracy as much as possible. In this scenario, please check out: [LINK]
+Customer: @AppleSupport It’s not about accuracy. I used the activity app in the watch. That’s what said I burned 245 calories. So, the same watch should show 245 calories in the move ring.
+AppleSupport: @640021 We understand. Please reach out to us via DM and we can pick up from there. [LINK]","[Case 1 | ID: apple_2838639_27736_2838643 | Sim: 0.6028]
+Customer: I already set it up. When I worked out for an hour today, the calories didn’t track nor did the time. Even though I kept checking it
+AppleSupport: @790004 We'd like to investigate further with you. Send us a DM and we can troubleshoot more from there. https://t.co/GDrqU22YpT
+
+[Case 2 | ID: apple_509579_4892_509580 | Sim: 0.5783]
+Customer: Always the latest released version. Previous month I had the 25k move calories challenge which worked OK, counted total calories to date. My brother had the distance challenge and same bug was there, we just didn’t recognize it. We thought that his counter simply didn’t work.
+AppleSupport: @137632 Thank you for that information. Which Apple Watch are you using? If you're using Apple Watch Series 1 or earlier, let's calibrate it using the following article: https://t.co/rhTgi5kLq8
+
+[Case 3 | ID: apple_2321895_23286_2321899 | Sim: 0.5539]
+Customer: Dear Apple, pro user here. If we wanted details, see images please. Any idea why my Activity ring doesn't reflect the Watch activity tracking? I mean before making me delete and reinstall. You can say, we don't know. It's fine. Thanks for the help. https://t.co/IRvPEwhXHj
+AppleSupport: @149292 Did this issue begin with the update of your iPhone to the beta software, 11.2? Please DM us. https://t.co/GDrqU22YpT",apple_2838639_27736_2838643,0.6028,"I already set it up. When I worked out for an hour today, the calories didn’t track nor did the time. Even though I kept checking it",@790004 We'd like to investigate further with you. Send us a DM and we can troubleshoot more from there. https://t.co/GDrqU22YpT,apple_509579_4892_509580,0.5783,"Always the latest released version. Previous month I had the 25k move calories challenge which worked OK, counted total calories to date. My brother had the distance challenge and same bug was there, we just didn’t recognize it. We thought that his counter simply didn’t work.","@137632 Thank you for that information. Which Apple Watch are you using? If you're using Apple Watch Series 1 or earlier, let's calibrate it using the following article: https://t.co/rhTgi5kLq8",apple_2321895_23286_2321899,0.5539,"Dear Apple, pro user here. If we wanted details, see images please. Any idea why my Activity ring doesn't reflect the Watch activity tracking? I mean before making me delete and reinstall. You can say, we don't know. It's fine. Thanks for the help. https://t.co/IRvPEwhXHj","@149292 Did this issue begin with the update of your iPhone to the beta software, 11.2? Please DM us. https://t.co/GDrqU22YpT","I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,YES,4,"Evidence (Cases 1-3) consistently shows similar Watch/Activity issues escalating to DM after discussion; the actual conversation shows a detailed explanation followed by DM handoff, consistent with the response even though no explicit prior 'failed troubleshooting' step is stated."
+42,apple_1771180_18096,escalate,Other / General,"AppleSupport: @532414 Let's see what we can do for you here. Tell us more about what you're experiencing, we'll start from there.
+Customer: @AppleSupport Managed to get on a call, gonna have to try to do a walk in at the store. Thanks though 😊
+AppleSupport: @532414 No problem, glad you were pointed to the right direction. Feel free to reach back out if you have any additional questions.","[Case 1 | ID: apple_2583209_25713_2583210 | Sim: 0.5804]
+Customer: I got someone on the phone, thank you!
+AppleSupport: @732049 You’re welcome! If you have any other issues, let us know. We’re available every day from 5 a.m. to 8 p.m. Pacific time.
+
+[Case 2 | ID: apple_2867300_27952_2867301 | Sim: 0.5369]
+Customer: Thanks for the quick reply. I’m actually at one of your stores right now, waiting on a technician.
+AppleSupport: @796329 They should be able to assist. Have a great day!
+
+[Case 3 | ID: apple_2013826_20021_2013823 | Sim: 0.5333]
+Customer: Just tried to call however the line has closed for the day. Can you guys help me instead as i will find it hard to call in opening hours
+AppleSupport: @588699 We don't have access to order details through this support option. Only our Sales Team has access to assist with this issue.",apple_2583209_25713_2583210,0.5804,"I got someone on the phone, thank you!","@732049 You’re welcome! If you have any other issues, let us know. We’re available every day from 5 a.m. to 8 p.m. Pacific time.",apple_2867300_27952_2867301,0.5369,"Thanks for the quick reply. I’m actually at one of your stores right now, waiting on a technician.",@796329 They should be able to assist. Have a great day!,apple_2013826_20021_2013823,0.5333,Just tried to call however the line has closed for the day. Can you guys help me instead as i will find it hard to call in opening hours,@588699 We don't have access to order details through this support option. Only our Sales Team has access to assist with this issue.,"I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,NO,1,"Actual conversation shows the issue was already resolved via a phone call and the exchange is a closing/thank-you, not a case of troubleshooting failing and needing specialist escalation."
+43,apple_1245977_12275,auto_handle,iOS / Software,"AppleSupport: @412299 This is not the experience we want you to have with the update. What issues are you having?
+Customer: @AppleSupport I used beta these issues are same since you guys released first beta of iOS 11. I think iOS 10 was better than this one.
+AppleSupport: @412299 Thank you. Please send us a DM and we will look into this together. [LINK]","[Case 1 | ID: apple_307332_3008_307389 | Sim: 0.8091]
+Customer: have y’all finished working out those bugs on the newest update. This iOS 11.0.2 is piss poor ...
+AppleSupport: @217835 Let's work on it together. What symptoms are you experiencing? Which iPhone do you have?
+
+[Case 2 | ID: apple_455046_4532_455052 | Sim: 0.8070]
+Customer: Yea still the same, I been struggling with it since iOS 11.1 came out
+AppleSupport: @223018 Understood. Let's force quit the Mail app and let us know if the issue continues. Here's how: https://t.co/RqqIctrDWV
+
+[Case 3 | ID: apple_2320099_23237_2320100 | Sim: 0.7969]
+Customer: Never mind I got the new iOS 11.2 beta 3 and everything is fine. Thanks tho
+AppleSupport: @672419 Great, we're happy to hear it. If you need anything else in the future, just let us know.",apple_307332_3008_307389,0.8091,have y’all finished working out those bugs on the newest update. This iOS 11.0.2 is piss poor ...,@217835 Let's work on it together. What symptoms are you experiencing? Which iPhone do you have?,apple_455046_4532_455052,0.807,"Yea still the same, I been struggling with it since iOS 11.1 came out",@223018 Understood. Let's force quit the Mail app and let us know if the issue continues. Here's how: https://t.co/RqqIctrDWV,apple_2320099_23237_2320100,0.7969,Never mind I got the new iOS 11.2 beta 3 and everything is fine. Thanks tho,"@672419 Great, we're happy to hear it. If you need anything else in the future, just let us know.","We understand you're experiencing an issue with iOS / Software. Here is standard guidance from Apple Support: Let's work on it together. What symptoms are you experiencing? Which iPhone do you have? If the issue persists, please let us know!",5,True,Standard troubleshooting guidance from Apple Support interaction,,YES,5,"Response matches top-matched Case 1 verbatim ('let's work on it together, what symptoms, which iPhone') and matches the actual complaint about iOS bugs."
+52,apple_2703186_26629,escalate,Other / General,"AppleSupport: @759272 Let us help with your iPhone! We can understand wanting to get your data transferred over. What happens when you try to transfer the data? Are you getting an error message?
+Customer: @AppleSupport Not sir, I donno how to do it. Cant find a way. I tried searching for it, saw Apple's site, but no help.
+AppleSupport: @759272 Thanks for letting us know. You’ll want to be sure to follow the exact steps listed here: [LINK] Let us know if you're still having issues after completing the steps in the article.
+Customer: @AppleSupport Ok let me try that, will let you know if I need further help :) Thnku.","[Case 1 | ID: apple_1524080_14747_1524088 | Sim: 0.7891]
+Customer: Thx, Already have done so some time ago, unfortunately no response from Apple
+AppleSupport: @473486 If you wish to disable Bluetooth, you can do so at Settings>Wi-Fi>Bluetooth. You can ask Siri do it as well.
+
+[Case 2 | ID: apple_2652595_26208_2652596 | Sim: 0.7019]
+Customer: Yes. I know how to do it but it isn’t working, as you can see from screenshot
+AppleSupport: @669657 Let's have our iTunes Support team take a look at this. Use this link to contact them: https://t.co/SDIe7UiyJN
+
+[Case 3 | ID: apple_661563_6609_2621257 | Sim: 0.6950]
+Customer: Yes, we have tried this option unfortunately it didn't work
+AppleSupport: @740648 What country or region are you currently located in? This will help us provide the best support options. Let us know in Direct Message, and we'll help out. https://t.co/GDrqU22YpT",apple_1524080_14747_1524088,0.7891,"Thx, Already have done so some time ago, unfortunately no response from Apple","@473486 If you wish to disable Bluetooth, you can do so at Settings>Wi-Fi>Bluetooth. You can ask Siri do it as well.",apple_2652595_26208_2652596,0.7019,"Yes. I know how to do it but it isn’t working, as you can see from screenshot",@669657 Let's have our iTunes Support team take a look at this. Use this link to contact them: https://t.co/SDIe7UiyJN,apple_661563_6609_2621257,0.695,"Yes, we have tried this option unfortunately it didn't work","@740648 What country or region are you currently located in? This will help us provide the best support options. Let us know in Direct Message, and we'll help out. https://t.co/GDrqU22YpT","I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,NO,2,"Actual conversation shows the customer has not yet attempted the newly provided steps ('let me try that... will let you know'), so claiming troubleshooting 'hasn't resolved this' is premature and not supported by the conversation context."
+54,apple_1148780_11256,clarify,Other / General,"AppleSupport: @390339 We're glad you reached out to us so we can help. See using Control Center for info on Bluetooth: [LINK]
+Customer: @AppleSupport Thank You
+AppleSupport: @390339 You’re welcome. Feel free to reach back out to us if you have further questions. Have a wonderful day!","[Case 1 | ID: apple_41657_508_41658 | Sim: 1.0000]
+Customer: Thank you
+AppleSupport: @125167 You're welcome!
+
+[Case 2 | ID: apple_23135_274_23139 | Sim: 1.0000]
+Customer: Thank you
+AppleSupport: @121039 You're most welcome. Enjoy your day!
+
+[Case 3 | ID: apple_8314_144_8315 | Sim: 1.0000]
+Customer: Thank you
+AppleSupport: @117460 You're very welcome! Please feel free to reach out to us again if you need any more help. Have a great day!",apple_41657_508_41658,1.0,Thank you,@125167 You're welcome!,apple_23135_274_23139,1.0,Thank you,@121039 You're most welcome. Enjoy your day!,apple_8314_144_8315,1.0,Thank you,@117460 You're very welcome! Please feel free to reach out to us again if you need any more help. Have a great day!,"Could you please clarify which device, app, or feature is experiencing the issue?",5,True,Polite inquiry or specialist handoff,,NO,0,"Both the evidence and the actual conversation are closing exchanges triggered by 'Thank you', where Apple's real response was an acknowledgment ('You're welcome'), not a request for clarification. The generated question is inconsistent with what the evidence shows actually happens in this exact situation."
+57,apple_2028919_20200,clarify,Messages / Calling,"AppleSupport: @599989 Let’s work together on this situation. How long has this been happening? Let us know via a DM. We’ll go from there. [LINK]
+Customer: @AppleSupport Thanks, message sent.","[Case 1 | ID: apple_1666322_16529_1666321 | Sim: 0.7412]
+Customer: Thanks, i sent a message 👍
+AppleSupport: @507635 We see your DM and will repsond shortly. Look for us there.
+
+[Case 2 | ID: apple_1141052_11124_1141051 | Sim: 0.6936]
+Customer: Message sent
+AppleSupport: @388590 Awesome! We've received your DM and we'll continue there.
+
+[Case 3 | ID: apple_121530_1144_121529 | Sim: 0.6936]
+Customer: Message sent
+AppleSupport: @143056 We got your DM. We will meet with you there.",apple_1666322_16529_1666321,0.7412,"Thanks, i sent a message 👍",@507635 We see your DM and will repsond shortly. Look for us there.,apple_1141052_11124_1141051,0.6936,Message sent,@388590 Awesome! We've received your DM and we'll continue there.,apple_121530_1144_121529,0.6936,Message sent,@143056 We got your DM. We will meet with you there.,"Could you please clarify which device, app, or feature is experiencing the issue?",5,True,Polite inquiry or specialist handoff,,NO,1,"Evidence and the actual conversation show the customer already sent the requested DM ('Thanks, message sent'), a closing-type exchange; asking for clarification isn't supported."
+60,apple_612853_6006,escalate,App Issue,"AppleSupport: Seeing an i️ whenever you type “i"" in iOS 11.1? Fix it by installing the latest software update. [LINK]
+Customer: @AppleSupport Hey apple I️ have a 7+ and it gets HOT every time I️ use it
+AppleSupport: @723566 We want you to enjoy your iPhone; we'll do all we can to help. It can be normal for your iPhone to get warm during use. You can learn more about that under ""Your device might get warm"" here: [LINK]","[Case 1 | ID: apple_184452_1633_184457 | Sim: 0.6750]
+Customer: In comparison to the iPhone 7 plus it gets hotter, but I do not receive temperature warnings. Yet, I am using this iPhone without a case.
+AppleSupport: @159417 Thank you! Please take a look at this article, which offers some great tips to keep your iPhone working within acceptable operating temperatures: https://t.co/otCvUAaFQq
+
+[Case 2 | ID: apple_954029_9388_954028 | Sim: 0.6165]
+Customer: iPhone 6 Plus. Temperature doesn't really rise beyond what's normal. Battery just silently runs out. A friend also complained about same.
+AppleSupport: @346379 Got it, thanks. Since completing the update, have you attempted any of the steps here: https://t.co/TpjqFp3jxD
+
+[Case 3 | ID: apple_87091_815_87114 | Sim: 0.5969]
+Customer: iphone X heats a lot while playing games even more than 6S Plus and 7 plus. Could you fix it on next update? Or is this a #HeatIssue ? #iPhoneX @258625 @115858 @2185
+AppleSupport: @804908 Let us help you get this sorted out. Join us in DM so we can better assist you: https://t.co/GDrqU22YpT",apple_184452_1633_184457,0.675,"In comparison to the iPhone 7 plus it gets hotter, but I do not receive temperature warnings. Yet, I am using this iPhone without a case.","@159417 Thank you! Please take a look at this article, which offers some great tips to keep your iPhone working within acceptable operating temperatures: https://t.co/otCvUAaFQq",apple_954029_9388_954028,0.6165,iPhone 6 Plus. Temperature doesn't really rise beyond what's normal. Battery just silently runs out. A friend also complained about same.,"@346379 Got it, thanks. Since completing the update, have you attempted any of the steps here: https://t.co/TpjqFp3jxD",apple_87091_815_87114,0.5969,iphone X heats a lot while playing games even more than 6S Plus and 7 plus. Could you fix it on next update? Or is this a #HeatIssue ? #iPhoneX @258625 @115858 @2185,@804908 Let us help you get this sorted out. Join us in DM so we can better assist you: https://t.co/GDrqU22YpT,"I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,NO,1,"Actual conversation is about a phone getting warm during normal use, addressed as expected behavior, not a failed-troubleshooting escalation scenario. Evidence doesn't support the escalate framing."
+65,apple_2355016_23518,auto_handle,Battery / Charging,"AppleSupport: @389172 We're here to help and will do all we can to work towards a resolution. To help guide us through troubleshooting, may we get the exact iOS version currently running on the iPhone?
+Customer: @AppleSupport IOS 5s Already throttled my usage Lucky to get 4 to 5 hrs Will rapidly drop 50% then rocket back up 40% when i plug in Can’t trust battery
+AppleSupport: @389172 Thank you for those details. If you haven't had the chance, we would want to try the steps in the following article. Let us know in a DM if you notice any improvements after adjusting settings. [LINK] [LINK]
+Customer: @AppleSupport Did that weeks ago after first upgrading. Your company response assumes we’re idiots. I am not the only one having these issues
+AppleSupport: @389172 Thanks for having already looked over that! Please DM us with the specific iOS version on your iPhone currently and we'd be happy to look into other troubleshooting for this. [LINK]
+Customer: @AppleSupport Was using MapMyWalk to track a walk w screen locked Shouldn’t have lost more than 10-20%
+AppleSupport: @389172 Please DM us using the link below and we'd be happy to investigate further with you. [LINK]","[Case 1 | ID: apple_2355016_23517_2355017 | Sim: 0.8729]
+Customer: IOS 5s Already throttled my usage Lucky to get 4 to 5 hrs Will rapidly drop 50% then rocket back up 40% when i plug in Can’t trust battery
+AppleSupport: @389172 Thank you for those details. If you haven't had the chance, we would want to try the steps in the following article. Let us know in a DM if you notice any improvements after adjusting settings. https://t.co/q57Uj17Q0V https://t.co/GDrqU22YpT
+
+[Case 2 | ID: apple_233610_2012_233611 | Sim: 0.6821]
+Customer: Battery life just dropped from 11 to 2% in 5 min. Was very good with previous iOS
+AppleSupport: @171610 Have you had the opportunity to update to iOS 11.0.2? If not, that would be our next recommended step. Keep us posted.
+
+[Case 3 | ID: apple_6658_70_6766 | Sim: 0.6661]
+Customer: The new update is terrible. Left the house at 90% battery life in 20 minutes I went down to 20%. Wtf Apple?
+AppleSupport: @296841 Thanks for reaching out. Let's take a closer look into your battery concerns together. Send us a DM below. https://t.co/GDrqU22YpT",apple_2355016_23517_2355017,0.8729,IOS 5s Already throttled my usage Lucky to get 4 to 5 hrs Will rapidly drop 50% then rocket back up 40% when i plug in Can’t trust battery,"@389172 Thank you for those details. If you haven't had the chance, we would want to try the steps in the following article. Let us know in a DM if you notice any improvements after adjusting settings. https://t.co/q57Uj17Q0V https://t.co/GDrqU22YpT",apple_233610_2012_233611,0.6821,Battery life just dropped from 11 to 2% in 5 min. Was very good with previous iOS,"@171610 Have you had the opportunity to update to iOS 11.0.2? If not, that would be our next recommended step. Keep us posted.",apple_6658_70_6766,0.6661,The new update is terrible. Left the house at 90% battery life in 20 minutes I went down to 20%. Wtf Apple?,@296841 Thanks for reaching out. Let's take a closer look into your battery concerns together. Send us a DM below. https://t.co/GDrqU22YpT,"We understand you're experiencing an issue with Battery / Charging. Here is standard guidance from Apple Support: Thank you for those details. If you haven't had the chance, we would want to try the steps in the following article. Let us know in a DM if you notice any improvements after adjusting settings. If the issue persists, please let us know!",5,True,Standard troubleshooting guidance from Apple Support interaction,,YES,5,Response matches top-matched Case 1 verbatim ('thank you for those details... article... DM if you notice improvement') and fits the actual battery-throttling complaint.
+66,apple_2350807_23478,escalate,Battery / Charging,"AppleSupport: @679455 We want to help get your iPhone charging and working as expected again. To verify, have you tried using more than one charging cable and power source to see if this has any impact? Are you using the cable that came with your device?
+Customer: @AppleSupport Yes, I took a special trip to the Apple store to buy 2. chargers the extension one and the regular.. I have used both.. but my phone will not hold that charge
+AppleSupport: @679455 Thank you for letting us know. To be clear, is your iPhone charging and draining quickly, or is your iPhone not charging at all?
+Customer: @AppleSupport Charging and draining quick
+AppleSupport: @679455 Understood. Would you mind please joining us in DM? We'd like to get started on troubleshooting: [LINK]","[Case 1 | ID: apple_489705_4738_489706 | Sim: 0.6425]
+Customer: first 2 apple chargers completely ripped & stopped working, so i bought 3 chargers that weren’t from apple. all 3 worked for a few months at a time, but my last one (same thing the other chargers said) said that the devices were unsupported, and kept charging and uncharging.
+AppleSupport: @231635 This error may occur if you are not using an Apple certified charger: https://t.co/fJpWZGmuz7
+
+[Case 2 | ID: apple_2376044_23863_2376045 | Sim: 0.5648]
+Customer: Yes. Have tried different cables and outlets. Our iPhones are still charging with all of them.
+AppleSupport: @685344 Got it. Next, please DM us so that we can look into this together. https://t.co/GDrqU22YpT
+
+[Case 3 | ID: apple_2279560_22181_2279564 | Sim: 0.5628]
+Customer: Yes that’s correct, all apple original adapter and plug. But from previous apple devices, assuming they are still compatible to use as they charge fine? Thx
+AppleSupport: @662736 OK thanks for those details. What version of the iOS software do you currently have installed on your device? You can find this in Settings > General > About. Please meet us in DM with this information, so we may continue to assist. https://t.co/GDrqU22YpT",apple_489705_4738_489706,0.6425,"first 2 apple chargers completely ripped & stopped working, so i bought 3 chargers that weren’t from apple. all 3 worked for a few months at a time, but my last one (same thing the other chargers said) said that the devices were unsupported, and kept charging and uncharging.",@231635 This error may occur if you are not using an Apple certified charger: https://t.co/fJpWZGmuz7,apple_2376044_23863_2376045,0.5648,Yes. Have tried different cables and outlets. Our iPhones are still charging with all of them.,"@685344 Got it. Next, please DM us so that we can look into this together. https://t.co/GDrqU22YpT",apple_2279560_22181_2279564,0.5628,"Yes that’s correct, all apple original adapter and plug. But from previous apple devices, assuming they are still compatible to use as they charge fine? Thx","@662736 OK thanks for those details. What version of the iOS software do you currently have installed on your device? You can find this in Settings > General > About. Please meet us in DM with this information, so we may continue to assist. https://t.co/GDrqU22YpT","I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,YES,4,"Evidence Case 2 closely matches: customer tried multiple cables/outlets, still an issue, Apple moves to DM -- consistent with the actual conversation where multiple cables were tried and Apple asks for DM."
+69,apple_2414347_24167,clarify,Other / General,"AppleSupport: @693988 We'd be happy to point you in the right direction for help with your gift card. You'll want to get in touch with our iTunes Support team about this. You can schedule a call with them after creating a support case online here: [LINK]
+Customer: @AppleSupport Thank you
+AppleSupport: @693988 You're very welcome.","[Case 1 | ID: apple_41657_508_41658 | Sim: 1.0000]
+Customer: Thank you
+AppleSupport: @125167 You're welcome!
+
+[Case 2 | ID: apple_23135_274_23139 | Sim: 1.0000]
+Customer: Thank you
+AppleSupport: @121039 You're most welcome. Enjoy your day!
+
+[Case 3 | ID: apple_8314_144_8315 | Sim: 1.0000]
+Customer: Thank you
+AppleSupport: @117460 You're very welcome! Please feel free to reach out to us again if you need any more help. Have a great day!",apple_41657_508_41658,1.0,Thank you,@125167 You're welcome!,apple_23135_274_23139,1.0,Thank you,@121039 You're most welcome. Enjoy your day!,apple_8314_144_8315,1.0,Thank you,@117460 You're very welcome! Please feel free to reach out to us again if you need any more help. Have a great day!,"Could you please clarify which device, app, or feature is experiencing the issue?",5,True,Polite inquiry or specialist handoff,,NO,0,Both the evidence and the actual conversation are closing 'Thank you' -> 'You're very welcome' exchanges; there's no indication in evidence that a clarifying question follows this kind of exchange.
+76,apple_954225_9396,escalate,Other / General,"AppleSupport: @346417 We’ll be glad to see how we can help. To begin, tell us which device you’re noticing this on, and we’ll get started.
+Customer: @AppleSupport iPhone 6s
+AppleSupport: @346417 Got it, thanks. Did you notice the photos were gone after doing anything specific on your iPhone, such as a restart or update?
+Customer: @AppleSupport No, they literally just disappeared :(
+AppleSupport: @346417 Your photos are important. We have a team of Photos specialists who can help. Go to: [LINK]","[Case 1 | ID: apple_1925502_19271_1925503 | Sim: 0.6899]
+Customer: iPhone 6s :-(
+AppleSupport: @284454 Thanks! How about charging after that update?
+
+[Case 2 | ID: apple_1159129_11397_1159130 | Sim: 0.6538]
+Customer: already did, they disappeared after i updated my phone to ios 11.0.3
+AppleSupport: @392678 Thanks for trying. Please join us in DM, and we'll continue there. https://t.co/GDrqU22YpT
+
+[Case 3 | ID: apple_1236300_12177_1236301 | Sim: 0.6468]
+Customer: iPhone 7plus and 11.0.2 and I tried restoring it from a backup and they still aren’t there.
+AppleSupport: @409965 Can you check our iCloud website from a computer to see if your photos appear in iCloud? https://t.co/RwqlgUBePA",apple_1925502_19271_1925503,0.6899,iPhone 6s :-(,@284454 Thanks! How about charging after that update?,apple_1159129_11397_1159130,0.6538,"already did, they disappeared after i updated my phone to ios 11.0.3","@392678 Thanks for trying. Please join us in DM, and we'll continue there. https://t.co/GDrqU22YpT",apple_1236300_12177_1236301,0.6468,iPhone 7plus and 11.0.2 and I tried restoring it from a backup and they still aren’t there.,@409965 Can you check our iCloud website from a computer to see if your photos appear in iCloud? https://t.co/RwqlgUBePA,"I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,YES,4,"Evidence shows a pattern of continued troubleshooting/DM handoff for a photos-missing issue; the actual conversation ends with Apple recommending a Photos specialist team, matching the escalation framing."
+81,apple_1368823_13250,auto_handle,Connectivity,"AppleSupport: @438616 We've got your back! What happens when you try to connect to your home Wi-Fi network? Are you seeing any errors?
+Customer: @AppleSupport It says unable to join network","[Case 1 | ID: apple_1222379_12022_1222384 | Sim: 0.7014]
+Customer: I did a network reset to try and connect but appears a Message saying not able to connect to network ....
+AppleSupport: @406832 Which iOS version is currently installed? DM us your answer and we'll take a look into this together. https://t.co/GDrqU22YpT
+
+[Case 2 | ID: apple_2355153_23541_2355154 | Sim: 0.6431]
+Customer: After a long time trying it now finally connected my home network. But at work I couldn’t get it to connect whole day, even after reboot. I can see the network but when trying to join the wifi symbol only shortly flashes black and turns into gray immediately.
+AppleSupport: @680421 Okay, let's troubleshoot further in DM. Send us a message and we'll follow up there. https://t.co/GDrqU22YpT
+
+[Case 3 | ID: apple_414036_4167_414035 | Sim: 0.6397]
+Customer: It says can’t connect to the server
+AppleSupport: @213800 We'd like to take a further look at this with you. Please meet us in DM. https://t.co/GDrqU22YpT",apple_1222379_12022_1222384,0.7014,I did a network reset to try and connect but appears a Message saying not able to connect to network ....,@406832 Which iOS version is currently installed? DM us your answer and we'll take a look into this together. https://t.co/GDrqU22YpT,apple_2355153_23541_2355154,0.6431,"After a long time trying it now finally connected my home network. But at work I couldn’t get it to connect whole day, even after reboot. I can see the network but when trying to join the wifi symbol only shortly flashes black and turns into gray immediately.","@680421 Okay, let's troubleshoot further in DM. Send us a message and we'll follow up there. https://t.co/GDrqU22YpT",apple_414036_4167_414035,0.6397,It says can’t connect to the server,@213800 We'd like to take a further look at this with you. Please meet us in DM. https://t.co/GDrqU22YpT,"We understand you're experiencing an issue with Connectivity. Here is standard guidance from Apple Support: Which iOS version is currently installed? DM us your answer and we'll take a look into this together. If the issue persists, please let us know!",5,True,Standard troubleshooting guidance from Apple Support interaction,,YES,5,Response matches top-matched Case 1 verbatim ('which iOS version... DM us') and matches the actual network-connection complaint.
+83,apple_2295668_22648,auto_handle,Other / General,"AppleSupport: @263940 We understand wanting to get the achievement you earned. Let's look into this together. Which iOS are you running on your iPhone? Which watchOS are you running on your Watch?
+Customer: @AppleSupport I'm running 11.2 (15C5097d) on the 7 Plus and on my Series 2 GPS 4.1 (15R846) :)
+AppleSupport: @263940 Since iOS 11.2 is a beta version, we'd like you to leave feedback about this through the Feedback Assistant. If you would like to revert back to iOS 11.1.1 to see if the achievement appears, we can help you with that. Let us know what you'd like to do.
+Customer: @AppleSupport I got it. 🎉 [LINK]
+AppleSupport: @263940 Fantastic! We're glad to hear that you got the credit for your hard work. Have a good rest of your day.","[Case 1 | ID: apple_2295668_22647_2295666 | Sim: 0.9059]
+Customer: I'm running 11.2 (15C5097d) on the 7 Plus and on my Series 2 GPS 4.1 (15R846) :)
+AppleSupport: @263940 Since iOS 11.2 is a beta version, we'd like you to leave feedback about this through the Feedback Assistant. If you would like to revert back to iOS 11.1.1 to see if the achievement appears, we can help you with that. Let us know what you'd like to do.
+
+[Case 2 | ID: apple_823193_7974_823194 | Sim: 0.5788]
+Customer: I have a 7 plus, and I have the most recent version, 11.0.3
+AppleSupport: @238856 Are you seeing this mostly with specific apps or are you seeing this pretty much everywhere on your iPhone?
+
+[Case 3 | ID: apple_208992_1879_208991 | Sim: 0.5775]
+Customer: 11.0.2 and I have the 7
+AppleSupport: @165461 Thanks! Check out the steps in the article below to try to resolve. Let us know how that goes. https://t.co/XlmCP2gCtj",apple_2295668_22647_2295666,0.9059,I'm running 11.2 (15C5097d) on the 7 Plus and on my Series 2 GPS 4.1 (15R846) :),"@263940 Since iOS 11.2 is a beta version, we'd like you to leave feedback about this through the Feedback Assistant. If you would like to revert back to iOS 11.1.1 to see if the achievement appears, we can help you with that. Let us know what you'd like to do.",apple_823193_7974_823194,0.5788,"I have a 7 plus, and I have the most recent version, 11.0.3",@238856 Are you seeing this mostly with specific apps or are you seeing this pretty much everywhere on your iPhone?,apple_208992_1879_208991,0.5775,11.0.2 and I have the 7,@165461 Thanks! Check out the steps in the article below to try to resolve. Let us know how that goes. https://t.co/XlmCP2gCtj,"We understand you're experiencing an issue with Other / General. Here is standard guidance from Apple Support: Since iOS 11.2 is a beta version, we'd like you to leave feedback about this through the Feedback Assistant. If you would like to revert back to iOS 11.1.1 to see if the achievement appears, we can help you with that. Let us know what you'd like to do. If the issue persists, please let us know!",5,True,Standard troubleshooting guidance from Apple Support interaction,,YES,5,Response matches top-matched Case 1 verbatim (beta feedback / revert offer) and matches the exact watch-achievement issue in the real conversation.
+85,apple_2345911_23406,auto_handle,Other / General,"AppleSupport: @678344 We want to help. Have you updated to iOS 11.1.1 yet?
+Customer: @AppleSupport That might have fixed it! Testing... I... I... yay!!! Thanks!
+AppleSupport: @678344 Awesome! Be sure to reach out if you need us in the future.","[Case 1 | ID: apple_2485786_24819_2485787 | Sim: 0.7577]
+Customer: Yes. Resolved. Turns out it was a glitch afterall. Thanks
+AppleSupport: @710057 You're very welcome. Feel free to reach out to us if you need anything in the future.
+
+[Case 2 | ID: apple_2133471_21021_2133475 | Sim: 0.7459]
+Customer: Ok! That seems to have fixed it. Thank you!
+AppleSupport: @627740 Awesome! Let us know if you ever need support.
+
+[Case 3 | ID: apple_211178_1891_211177 | Sim: 0.7452]
+Customer: Just tried that now & that seems to have fixed it, thanks!! https://t.co/4EjciTp04l
+AppleSupport: @166024 That's awesome! Please contact us again with any questions or concerns. Take care & enjoy your day.",apple_2485786_24819_2485787,0.7577,Yes. Resolved. Turns out it was a glitch afterall. Thanks,@710057 You're very welcome. Feel free to reach out to us if you need anything in the future.,apple_2133471_21021_2133475,0.7459,Ok! That seems to have fixed it. Thank you!,@627740 Awesome! Let us know if you ever need support.,apple_211178_1891_211177,0.7452,"Just tried that now & that seems to have fixed it, thanks!! https://t.co/4EjciTp04l",@166024 That's awesome! Please contact us again with any questions or concerns. Take care & enjoy your day.,"We understand you're experiencing an issue with Other / General. Here is standard guidance from Apple Support: You're very welcome. Feel free to reach out to us if you need anything in the future. If the issue persists, please let us know!",5,True,Standard troubleshooting guidance from Apple Support interaction,,YES,5,Response matches top-matched Case 1 verbatim ('you're very welcome... reach out in future') and fits the actual resolved-issue thank-you.
+87,apple_2125117_20906,clarify,Other / General,"AppleSupport: @625839 Here’s what you can do to work around the issue until it’s fixed in a future software update: [LINK]
+Customer: @AppleSupport 🙏","[Case 1 | ID: apple_2621179_26007_2621180 | Sim: 1.0000]
+Customer: thanks🙌🏽
+AppleSupport: @740627 We're always happy to help! Feel free to reach out to us if we can be of any further assistance. Our office hours are 7 days a week, from 5AM - 8PM PDT. If you contact us after business hours, rest assured we'll respond the following day.
+
+[Case 2 | ID: apple_1212745_11870_1212746 | Sim: 1.0000]
+Customer: Thanks👍
+AppleSupport: @404636 It's our pleasure. If there's anything you need in the future, reach out. We'll be happy to help.
+
+[Case 3 | ID: apple_2436435_24372_2436439 | Sim: 0.6862]
+Customer: 👍 thanks
+AppleSupport: @146928 You are welcome! Reach out to us anytime you have a question or need assistance. We'll be here for you. Have a great day!",apple_2621179_26007_2621180,1.0,thanks🙌🏽,"@740627 We're always happy to help! Feel free to reach out to us if we can be of any further assistance. Our office hours are 7 days a week, from 5AM - 8PM PDT. If you contact us after business hours, rest assured we'll respond the following day.",apple_1212745_11870_1212746,1.0,Thanks👍,"@404636 It's our pleasure. If there's anything you need in the future, reach out. We'll be happy to help.",apple_2436435_24372_2436439,0.6862,👍 thanks,@146928 You are welcome! Reach out to us anytime you have a question or need assistance. We'll be here for you. Have a great day!,"Could you please clarify which device, app, or feature is experiencing the issue?",5,True,Polite inquiry or specialist handoff,,NO,1,"Evidence is uniformly closing 'thanks' -> 'you're welcome/happy to help' exchanges (the real customer also used a thanks emoji), which doesn't support asking a clarifying question."
+92,apple_1539336_14895,escalate,iOS / Software,"AppleSupport: @477151 Hey, we want to help you get your Mac back up and running smoothly. Does this happen while using any apps in particular?
+Customer: @AppleSupport Mostly when I use Jupyter in Opera, with local Python. I have not had such a problem when I had El Capitan.
+AppleSupport: @477151 Alright, good to know. Have you checked to make sure that you've installed all available app updates via the App Store?
+Customer: @AppleSupport Update: it has been two days since I update to 10.13.1 and have not had the issue yet!
+AppleSupport: @477151 Glad to hear everything is working. Feel free to reach out if you need help with anything else.","[Case 1 | ID: apple_2652593_26207_2652590 | Sim: 0.5139]
+Customer: I noticed around 5 months ago. OS X El Capitan version 10.11.6
+AppleSupport: @748087 We'd like to look into this further with you. Could you please send us a DM so we can gather some information and get started? https://t.co/GDrqU22YpT
+
+[Case 2 | ID: apple_1433661_13924_1433663 | Sim: 0.4970]
+Customer: This is an issue that has been happening since 10.13 and continues even through 10.13.1 on Mac Mini’s. Lots of forum online w/no solution.
+AppleSupport: @452872 Thanks so much for letting us know. To narrow this down a bit more, can you let us know if you have any available app updates?
+
+[Case 3 | ID: apple_1980884_19772_1980885 | Sim: 0.4924]
+Customer: It has happened on El Capitan, Sierra, and now High Sierra. I linked another thread in mine which shows issue since Snow Leopard
+AppleSupport: @586372 Got it. DM us and we'll continue from there. https://t.co/GDrqU22YpT",apple_2652593_26207_2652590,0.5139,I noticed around 5 months ago. OS X El Capitan version 10.11.6,@748087 We'd like to look into this further with you. Could you please send us a DM so we can gather some information and get started? https://t.co/GDrqU22YpT,apple_1433661_13924_1433663,0.497,This is an issue that has been happening since 10.13 and continues even through 10.13.1 on Mac Mini’s. Lots of forum online w/no solution.,"@452872 Thanks so much for letting us know. To narrow this down a bit more, can you let us know if you have any available app updates?",apple_1980884_19772_1980885,0.4924,"It has happened on El Capitan, Sierra, and now High Sierra. I linked another thread in mine which shows issue since Snow Leopard",@586372 Got it. DM us and we'll continue from there. https://t.co/GDrqU22YpT,"I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,NO,0,Actual conversation explicitly states the issue has been resolved for two days and Apple confirms 'glad to hear everything is working' -- directly contradicting the claim that troubleshooting steps haven't resolved the issue.
+97,apple_1258923_12324,escalate,Other / General,"AppleSupport: @414985 We want to look deeper into this with you. DM us with more detail and we'll continue there. [LINK]
+Customer: @AppleSupport I visited an Apple Store at Fifth Avenue yesterday with a friend. The Genius Bar host (guy who checks in people) was very rude to us, twice","[Case 1 | ID: apple_2647140_26184_2647141 | Sim: 0.5517]
+Customer: Well, I made a Genius Bar appt that wasn’t honored. Store manager walked away without a word on when she’d be back. Told to wait almost 2 hrs.
+AppleSupport: @746851 Let's move this to DM where we can gather some additional details. https://t.co/GDrqU22YpT
+
+[Case 2 | ID: apple_1350548_13008_1350549 | Sim: 0.5454]
+Customer: Apple worst customer service I've ever seen just terrible
+AppleSupport: @434913 We'd like to learn more about your experience. Meet us in DM and we'll continue there. https://t.co/GDrqU22YpT
+
+[Case 3 | ID: apple_1230325_12091_1230326 | Sim: 0.4854]
+Customer: I know it's phony. What is Apple doing to stop it?
+AppleSupport: @408560 We recommend using the article provided to report any suspicious communications you come across.",apple_2647140_26184_2647141,0.5517,"Well, I made a Genius Bar appt that wasn’t honored. Store manager walked away without a word on when she’d be back. Told to wait almost 2 hrs.",@746851 Let's move this to DM where we can gather some additional details. https://t.co/GDrqU22YpT,apple_1350548_13008_1350549,0.5454,Apple worst customer service I've ever seen just terrible,@434913 We'd like to learn more about your experience. Meet us in DM and we'll continue there. https://t.co/GDrqU22YpT,apple_1230325_12091_1230326,0.4854,I know it's phony. What is Apple doing to stop it?,@408560 We recommend using the article provided to report any suspicious communications you come across.,"I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,YES,4,"Evidence (Genius Bar complaint escalated to DM) matches the actual conversation's complaint about rude staff being moved to DM for more detail, though this is a service complaint rather than a technical troubleshooting failure."
+101,apple_2271615_22030,clarify,Other / General,"AppleSupport: @270089 Are you using the original Apple charger? Are you plugging your phone in to a wall outlet, or some other power source? These questions should give us a great start to resolve the issue with you.
+Customer: @AppleSupport Yes and outlet
+AppleSupport: @270089 Great. We'd like to have you go through the steps in the link and DM us if the issues continues: [LINK] [LINK]","[Case 1 | ID: apple_940632_9256_940639 | Sim: 0.5147]
+Customer: No, juts this and the battery!!!
+AppleSupport: @342987 OK. Let's continue in DM. https://t.co/GDrqU22YpT
+
+[Case 2 | ID: apple_902849_8869_902857 | Sim: 0.4983]
+Customer: Yes, but still not charging
+AppleSupport: @334329 We want to look further into this issue. Reach us via DM to continue. https://t.co/GDrqU2kzhr
+
+[Case 3 | ID: apple_2580597_25686_2580598 | Sim: 0.4898]
+Customer: Yes to both questions
+AppleSupport: @731427 Is iCloud Music Library turned on in Settings > Music? If so, let's toggle it off and back on to see if your music appears again.",apple_940632_9256_940639,0.5147,"No, juts this and the battery!!!",@342987 OK. Let's continue in DM. https://t.co/GDrqU22YpT,apple_902849_8869_902857,0.4983,"Yes, but still not charging",@334329 We want to look further into this issue. Reach us via DM to continue. https://t.co/GDrqU2kzhr,apple_2580597_25686_2580598,0.4898,Yes to both questions,"@731427 Is iCloud Music Library turned on in Settings > Music? If so, let's toggle it off and back on to see if your music appears again.","Could you please clarify which device, app, or feature is experiencing the issue?",5,True,Polite inquiry or specialist handoff,,NO,2,Evidence Cases 1-2 show continuing troubleshooting/DM handoff for an already-identified charging issue; nothing suggests a generic 'which device/app/feature' clarifying question is the appropriate next step when the device and issue are already known.
+102,apple_1956304_19534,escalate,Other / General,"AppleSupport: @580581 We'll help. Tap Settings &gt; Photos. Is iCloud Photos enabled? Have you tried restarting? [LINK]
+Customer: @AppleSupport Yes it is enabled. Now I disabled
+AppleSupport: @580581 Good to know. Does this issue continue after? Also, have you had the chance to do a normal restart of the device yet?","[Case 1 | ID: apple_742529_7180_742530 | Sim: 0.9039]
+Customer: Yes it’s enabled.
+AppleSupport: @297541 You may want to disable Wi-Fi assist while your apps are updating. Our website here has more info: https://t.co/DNbz8VNCBY
+
+[Case 2 | ID: apple_550812_5296_550816 | Sim: 0.9039]
+Customer: Yes it’s enabled.
+AppleSupport: @248326 Thanks for those details. Just to make sure, what iOS version is currently installed? To find out, navigate to: Settings > General > About. Are you able to invoke Siri in any other way? Check out this article to learn more: https://t.co/7mwdoAblwV
+
+[Case 3 | ID: apple_1342779_12936_1342780 | Sim: 0.8701]
+Customer: Hi, yes I do have it enabled
+AppleSupport: @433171 OK! To test the issue, try turning off predictive text, and let us know if you're still experiencing the auto correction.",apple_742529_7180_742530,0.9039,Yes it’s enabled.,@297541 You may want to disable Wi-Fi assist while your apps are updating. Our website here has more info: https://t.co/DNbz8VNCBY,apple_550812_5296_550816,0.9039,Yes it’s enabled.,"@248326 Thanks for those details. Just to make sure, what iOS version is currently installed? To find out, navigate to: Settings > General > About. Are you able to invoke Siri in any other way? Check out this article to learn more: https://t.co/7mwdoAblwV",apple_1342779_12936_1342780,0.8701,"Hi, yes I do have it enabled","@433171 OK! To test the issue, try turning off predictive text, and let us know if you're still experiencing the auto correction.","I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,NO,1,"Actual conversation shows troubleshooting is still in progress -- Apple has just asked whether the customer has restarted, and that hasn't happened yet -- so escalating on the premise that steps 'haven't resolved this' is premature."
+105,apple_2960121_28570,escalate,Other / General,"AppleSupport: @816976 For further assistance with you order we'd recommend reaching out to our experts here: [LINK]
+Customer: @AppleSupport Thank you at least I got a reply from you guys
+AppleSupport: @816976 No problem. Don't hesitate to reach back out in the future if you need anything else. [LINK]","[Case 1 | ID: apple_2852281_27832_2852280 | Sim: 0.5824]
+Customer: Thank you guys
+AppleSupport: @793017 It's our pleasure. Feel free to reach out if any questions come up.
+
+[Case 2 | ID: apple_936150_9136_936151 | Sim: 0.5702]
+Customer: Thank you guys, really appreciate your quick reply.
+AppleSupport: @341939 You're welcome. If you have anymore questions, feel free to contact us. Have a great day!
+
+[Case 3 | ID: apple_2309046_23091_2309047 | Sim: 0.5535]
+Customer: Thanks guys
+AppleSupport: @669740 You are welcome. If you ever need support in the future, we're here to help.",apple_2852281_27832_2852280,0.5824,Thank you guys,@793017 It's our pleasure. Feel free to reach out if any questions come up.,apple_936150_9136_936151,0.5702,"Thank you guys, really appreciate your quick reply.","@341939 You're welcome. If you have anymore questions, feel free to contact us. Have a great day!",apple_2309046_23091_2309047,0.5535,Thanks guys,"@669740 You are welcome. If you ever need support in the future, we're here to help.","I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,NO,1,Actual conversation is a closing 'thank you for at least replying' exchange with no indication of failed troubleshooting steps; doesn't support the escalate framing.
+119,apple_2452188_24581,auto_handle,Other / General,"AppleSupport: @702628 We're happy to look into this for you. DM us the details of the trouble you are experiencing here: [LINK]
+Customer: @AppleSupport Thanks! As predicted, 10.13.1 seems to have taken care of a lot of things. Will DM if I see issues persist.","[Case 1 | ID: apple_2438598_24399_2438599 | Sim: 0.7185]
+Customer: Hi. I have 10.13.1. It didn’t have another update available
+AppleSupport: @699464 Got it! Do you have another device that has previously experienced this issue? Also, are you seeing the 'i' problem on messages you send or receive?
+
+[Case 2 | ID: apple_2476287_24703_2476294 | Sim: 0.6913]
+Customer: 11.1 I know there’s another update but is it going to fix all these problems I’ve been having or create more?
+AppleSupport: @707865 Keeping your device up to date can help us isolate the issues you're experiencing.
+
+[Case 3 | ID: apple_487894_4701_487895 | Sim: 0.6795]
+Customer: Sure thing. 11.1.2 I believe I’ve had this issue for a few weeks now.
+AppleSupport: @231128 Can you provide us what the error says when you try to update your apps?",apple_2438598_24399_2438599,0.7185,Hi. I have 10.13.1. It didn’t have another update available,"@699464 Got it! Do you have another device that has previously experienced this issue? Also, are you seeing the 'i' problem on messages you send or receive?",apple_2476287_24703_2476294,0.6913,11.1 I know there’s another update but is it going to fix all these problems I’ve been having or create more?,@707865 Keeping your device up to date can help us isolate the issues you're experiencing.,apple_487894_4701_487895,0.6795,Sure thing. 11.1.2 I believe I’ve had this issue for a few weeks now.,@231128 Can you provide us what the error says when you try to update your apps?,"We understand you're experiencing an issue with Other / General. Here is standard guidance from Apple Support: Got it! Do you have another device that has previously experienced this issue? Also, are you seeing the 'i' problem on messages you send or receive? If the issue persists, please let us know!",5,True,Standard troubleshooting guidance from Apple Support interaction,,YES,5,"Response matches top-matched Case 1 verbatim ('got it, do you have another device... i problem') and matches the update-related complaint."
+121,apple_1164667_11454,auto_handle,iOS / Software,"AppleSupport: @393965 We'd be happy to look into this with you! To begin, what iOS version are you currently on?
+Customer: @AppleSupport iOS 11.0.3
+AppleSupport: @393965 Do you use any other devices with the Activity App?
+Customer: @AppleSupport My Apple Watch
+AppleSupport: @393965 DM us using the link below. We'll work together from there. [LINK]","[Case 1 | ID: apple_928075_9086_928076 | Sim: 0.7267]
+Customer: iOS 11.03 on phone watchOS 4
+AppleSupport: @302041 Did you restore your iCloud backup to the new iPhone and Watch? If so, how long ago was that completed?
+
+[Case 2 | ID: apple_1272436_12427_1272437 | Sim: 0.7212]
+Customer: Just iOS 11.0 on iPhone 8. I’ve got no Apple Watch.
+AppleSupport: @417859 Are you using any fitness accessories? Send us a DM and let us know so we can continue from there:
+
+[Case 3 | ID: apple_2255443_21895_2255437 | Sim: 0.7164]
+Customer: Iam running Watch OS 4.1 and IOS 11.1
+AppleSupport: @656925 Do you have a recent backup of these devices?",apple_928075_9086_928076,0.7267,iOS 11.03 on phone watchOS 4,"@302041 Did you restore your iCloud backup to the new iPhone and Watch? If so, how long ago was that completed?",apple_1272436_12427_1272437,0.7212,Just iOS 11.0 on iPhone 8. I’ve got no Apple Watch.,@417859 Are you using any fitness accessories? Send us a DM and let us know so we can continue from there:,apple_2255443_21895_2255437,0.7164,Iam running Watch OS 4.1 and IOS 11.1,@656925 Do you have a recent backup of these devices?,"We understand you're experiencing an issue with iOS / Software. Here is standard guidance from Apple Support: Did you restore your iCloud backup to the new iPhone and Watch? If so, how long ago was that completed? If the issue persists, please let us know!",5,True,Standard troubleshooting guidance from Apple Support interaction,,YES,5,Response matches top-matched Case 1 verbatim ('did you restore iCloud backup... how long ago') and matches the actual Watch/Activity conversation exactly.
+128,apple_1180518_11642,auto_handle,Apple ID / Account,"AppleSupport: @397658 How long has this been going on? Have you made recent changes to your account?
+Customer: @AppleSupport Just a password change
+AppleSupport: @397658 Let's take a closer look. Here's a link to DM us. [LINK]","[Case 1 | ID: apple_588146_5782_588151 | Sim: 0.7482]
+Customer: I changed it when first told me the password was wrong.
+AppleSupport: @134431 Are you able to sign in with the new password from other devices?
+
+[Case 2 | ID: apple_1228028_12080_1228029 | Sim: 0.7354]
+Customer: I believe someone got into my account, i changed my password, but I would like to change my security answers
+AppleSupport: @408101 We certainly understand your concern with your account. Please contact our account specialists here: https://t.co/UJm15vmMM2
+
+[Case 3 | ID: apple_1756115_17720_1756116 | Sim: 0.7292]
+Customer: yeah i changed the password and security questions but it’s also under my phone number
+AppleSupport: @335077 Our Apple ID team can help you look into this more. Get in touch with them using our website here: https://t.co/UJm15vmMM2",apple_588146_5782_588151,0.7482,I changed it when first told me the password was wrong.,@134431 Are you able to sign in with the new password from other devices?,apple_1228028_12080_1228029,0.7354,"I believe someone got into my account, i changed my password, but I would like to change my security answers",@408101 We certainly understand your concern with your account. Please contact our account specialists here: https://t.co/UJm15vmMM2,apple_1756115_17720_1756116,0.7292,yeah i changed the password and security questions but it’s also under my phone number,@335077 Our Apple ID team can help you look into this more. Get in touch with them using our website here: https://t.co/UJm15vmMM2,"We understand you're experiencing an issue with Apple ID / Account. Here is standard guidance from Apple Support: Are you able to sign in with the new password from other devices? If the issue persists, please let us know!",5,True,Standard troubleshooting guidance from Apple Support interaction,,YES,5,Response matches top-matched Case 1 verbatim ('are you able to sign in with new password from other devices') and matches the actual password-change context.
+133,apple_1767355_17991,escalate,iOS / Software,"AppleSupport: @531431 Here’s what you can do to work around the issue until it’s fixed in a future software update: [LINK]
+Customer: @AppleSupport Will we then have to go in and reset that when the update fixes the original problem?","[Case 1 | ID: apple_2013604_20016_2013605 | Sim: 0.6258]
+Customer: Mine still messes up. So when are they gonna do an update to fix this???
+AppleSupport: @579834 Let’s work together on this behavior. Could you let us know more details via a DM? We’ll keep moving from there. https://t.co/GDrqU22YpT
+
+[Case 2 | ID: apple_339721_3373_339722 | Sim: 0.6254]
+Customer: Yep. I have installed the 0.2 update I think pretty much as soon as it came out. I’ve lost count of the number of resets needed today alone.
+AppleSupport: @197131 Go ahead and send us a DM so we can look into this with you. You can DM us here: https://t.co/GDrqU22YpT
+
+[Case 3 | ID: apple_2919973_28337_2919979 | Sim: 0.6250]
+Customer: So it shouldn’t update at all then now since I deleted the update?
+AppleSupport: @446990 The update will still be available. If you tap on the update, it will still update the iPhone.",apple_2013604_20016_2013605,0.6258,Mine still messes up. So when are they gonna do an update to fix this???,@579834 Let’s work together on this behavior. Could you let us know more details via a DM? We’ll keep moving from there. https://t.co/GDrqU22YpT,apple_339721_3373_339722,0.6254,Yep. I have installed the 0.2 update I think pretty much as soon as it came out. I’ve lost count of the number of resets needed today alone.,@197131 Go ahead and send us a DM so we can look into this with you. You can DM us here: https://t.co/GDrqU22YpT,apple_2919973_28337_2919979,0.625,So it shouldn’t update at all then now since I deleted the update?,"@446990 The update will still be available. If you tap on the update, it will still update the iPhone.","I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,NO,2,"Actual conversation is the customer asking a forward-looking question about future resets, not a case where troubleshooting steps have already failed; the evidence (steps not working, DM escalation) doesn't map onto this specific turn."
+135,apple_2287407_22466,escalate,Other / General,"AppleSupport: @664591 Congratulations on the new iPhone X. We'd be happy to check into this activation error. How long are you able to use iPhone before this appears? Does iOS 11.1.1 show in Settings &gt; General &gt; About?
+Customer: @AppleSupport Sometimes it occurs more than once a day.","[Case 1 | ID: apple_1646042_16287_1646048 | Sim: 0.7423]
+Customer: It happens at places throughout my day.
+AppleSupport: @377053 Thanks for confirming this. Send us a DM letting us know which country you live in and we'll work from there: https://t.co/GDrqU22YpT
+
+[Case 2 | ID: apple_1717494_17333_1717495 | Sim: 0.7312]
+Customer: I haven’t managed to notice a pattern yet- some times it’s multiple times a day
+AppleSupport: @520063 We'd like to continue looking into this with you. Let's meet in DM. https://t.co/GDrqU22YpT
+
+[Case 3 | ID: apple_121525_1143_121521 | Sim: 0.7194]
+Customer: It happens spontaneously at times, but without fail happens every morning for at least 2-3 hours.
+AppleSupport: @143054 Thanks for letting us know. Is there a protective case or screen protector on your iPhone at this time? Also, this is occurring on iOS 11.1.2, correct?",apple_1646042_16287_1646048,0.7423,It happens at places throughout my day.,@377053 Thanks for confirming this. Send us a DM letting us know which country you live in and we'll work from there: https://t.co/GDrqU22YpT,apple_1717494_17333_1717495,0.7312,I haven’t managed to notice a pattern yet- some times it’s multiple times a day,@520063 We'd like to continue looking into this with you. Let's meet in DM. https://t.co/GDrqU22YpT,apple_121525_1143_121521,0.7194,"It happens spontaneously at times, but without fail happens every morning for at least 2-3 hours.","@143054 Thanks for letting us know. Is there a protective case or screen protector on your iPhone at this time? Also, this is occurring on iOS 11.1.2, correct?","I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,YES,4,Evidence shows customers answering similar info-gathering questions and Apple then moving to DM; the real conversation (customer answering a frequency question) fits this same pattern well.
+146,apple_652942_8859,auto_handle,iOS / Software,"AppleSupport: @275254 We'd be happy to look into this with you. Tell us your iOS version in DM. We'll go from there. [LINK]
+Customer: @AppleSupport Hi Just checked and there is a update 11.1 so will update later and see if that fixes problem first","[Case 1 | ID: apple_595846_5860_595844 | Sim: 0.9134]
+Customer: Updating to 11.1.2 now... hadn't noticed that was out. I'll let ya know if it resolves the issue. ty
+AppleSupport: @70833 Sounds great. Keep us posted on the results.
+
+[Case 2 | ID: apple_1620587_15828_1620591 | Sim: 0.9089]
+Customer: Hi. Updated to 11.1.1. Same issue.
+AppleSupport: @496675 Let's take a closer look at your issue. Reach out via DM using the link below. https://t.co/GDrqU22YpT
+
+[Case 3 | ID: apple_559103_5478_559102 | Sim: 0.8969]
+Customer: So far updating to 11.2 seems to have fixed it. If there are other issues I’ll let you know. Thanks.
+AppleSupport: @250663 Excellent. If you run into any other issues or concerns, let us know. We'd love to hear from you. Have a great weekend.",apple_595846_5860_595844,0.9134,Updating to 11.1.2 now... hadn't noticed that was out. I'll let ya know if it resolves the issue. ty,@70833 Sounds great. Keep us posted on the results.,apple_1620587_15828_1620591,0.9089,Hi. Updated to 11.1.1. Same issue.,@496675 Let's take a closer look at your issue. Reach out via DM using the link below. https://t.co/GDrqU22YpT,apple_559103_5478_559102,0.8969,So far updating to 11.2 seems to have fixed it. If there are other issues I’ll let you know. Thanks.,"@250663 Excellent. If you run into any other issues or concerns, let us know. We'd love to hear from you. Have a great weekend.","We understand you're experiencing an issue with iOS / Software. Here is standard guidance from Apple Support: Sounds great. Keep us posted on the results. If the issue persists, please let us know!",5,True,Standard troubleshooting guidance from Apple Support interaction,,YES,5,"Response matches top-matched Case 1 verbatim ('sounds great, keep us posted') and matches the actual conversation where the customer plans to update and report back."
+148,apple_1868484_18853,escalate,iOS / Software,"AppleSupport: @558143 We know how important FaceTime is to talk to people and we'd love to help! What happens when you try to call him?
+Customer: @AppleSupport It doesn't work well as it was working with iOS 10, so I don't know what to do or so.
+AppleSupport: @558143 Thanks for providing those details, and we'd like to look into this. Please send us a DM, and we'll continue there. [LINK]","[Case 1 | ID: apple_1366387_13220_1366393 | Sim: 0.8077]
+Customer: Tried that too. Still doesn’t work. I read online that Apple removed it and will return it in a later version of iOS 11. Any truths?
+AppleSupport: @438082 3D Touch is still a feature that should be able to be used on your device. Let's look more into this in DM, please. https://t.co/GDrqU22YpT
+
+[Case 2 | ID: apple_713354_7008_713359 | Sim: 0.8069]
+Customer: IOS 11.2 and those things never have worked for me. I have tried everything. I am about done with apple
+AppleSupport: @290621 Do you mean iOS 11.0.2, or iOS 11.2? Also, which exact steps did you try? Let us know in DM here: https://t.co/GDrqU22YpT
+
+[Case 3 | ID: apple_2298038_22763_2298039 | Sim: 0.7896]
+Customer: I've done all of those things and it still doesnt' work. This started after I updated to the latest IOS.
+AppleSupport: @667090 OK. Towards the bottom of the article we sent to you, there are instructions to restore the device as new using iTunes on a computer. Have you done that?",apple_1366387_13220_1366393,0.8077,Tried that too. Still doesn’t work. I read online that Apple removed it and will return it in a later version of iOS 11. Any truths?,"@438082 3D Touch is still a feature that should be able to be used on your device. Let's look more into this in DM, please. https://t.co/GDrqU22YpT",apple_713354_7008_713359,0.8069,IOS 11.2 and those things never have worked for me. I have tried everything. I am about done with apple,"@290621 Do you mean iOS 11.0.2, or iOS 11.2? Also, which exact steps did you try? Let us know in DM here: https://t.co/GDrqU22YpT",apple_2298038_22763_2298039,0.7896,I've done all of those things and it still doesnt' work. This started after I updated to the latest IOS.,"@667090 OK. Towards the bottom of the article we sent to you, there are instructions to restore the device as new using iTunes on a computer. Have you done that?","I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,YES,4,"Evidence and the actual conversation both show a first-round complaint followed directly by a DM handoff ('thanks for details, please DM'), matching the escalation framing."
+155,apple_1776312_18227,escalate,Other / General,"AppleSupport: @533790 Here’s what you can do to work around the issue until it’s fixed in a future software update: [LINK]
+Customer: @AppleSupport I wonder if this worked. I did the steps. I’m using I a lot for a reason","[Case 1 | ID: apple_300077_2866_300078 | Sim: 0.7902]
+Customer: Yeah i've tried those steps and still nothing.
+AppleSupport: @187556 OK. Send us a DM and we'll take a closer look. https://t.co/GDrqU22YpT
+
+[Case 2 | ID: apple_2627728_26059_2627729 | Sim: 0.7357]
+Customer: Hmm, no luck so far. I tried the steps a couple of times. Any other suggestions?
+AppleSupport: @742170 Let's dig into this a bit further. DM us what software version you're on. https://t.co/GDrqU22YpT
+
+[Case 3 | ID: apple_373342_3727_373343 | Sim: 0.7351]
+Customer: I have tried all of those steps
+AppleSupport: @204469 Thanks for trying those steps. Let's continue in DM. https://t.co/GDrqU22YpT",apple_300077_2866_300078,0.7902,Yeah i've tried those steps and still nothing.,@187556 OK. Send us a DM and we'll take a closer look. https://t.co/GDrqU22YpT,apple_2627728_26059_2627729,0.7357,"Hmm, no luck so far. I tried the steps a couple of times. Any other suggestions?",@742170 Let's dig into this a bit further. DM us what software version you're on. https://t.co/GDrqU22YpT,apple_373342_3727_373343,0.7351,I have tried all of those steps,@204469 Thanks for trying those steps. Let's continue in DM. https://t.co/GDrqU22YpT,"I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,YES,5,"Evidence and the actual conversation both explicitly confirm the customer already tried the given steps without success, directly supporting escalation to DM/specialist."
+158,apple_2783273_27325,auto_handle,iOS / Software,"AppleSupport: @777194 Certainly not what we want you to experience on your awesome new iPhone X. Do you recall the version of iOS 11 you updated to when this began? Is it stuttering continuously in Messages and Home screen? Have you taken any troubleshooting steps to address this?
+Customer: @AppleSupport IOS 11.1.2 #latest realised so far, it’s stuttering most of the time after #FaceID and no I haven’t done any troubleshooting, many thanks
+AppleSupport: @777194 Got it. Let's start with restarting your iPhone. This can resolve many issues. If you're still seeing this stutter, send us a screen recording of this issue in DM. This link shows how to do this: [LINK] DM us here: [LINK]
+Customer: @AppleSupport Restarting already done at least 3 times today and it’s really hard to get screen recording as it’s suddenly happened and back to normal after couple of seconds
+AppleSupport: @777194 Thank you. Does the issue happen immediately after restarting the device, or after unlocking and using it for a period of time? Please DM us your answer, and we'll meet you there to continue. [LINK]
+Customer: @AppleSupport It’s happened since I upgraded to the latest IOS and WhatsApp having this issue since I got my phone , brought it to the Genius Bar and they said it will be resolved when you receive the update notification but it’s getting worse since this morning","[Case 1 | ID: apple_2783273_27326_2783269 | Sim: 0.9032]
+Customer: IOS 11.1.2 #latest realised so far, it’s stuttering most of the time after #FaceID and no I haven’t done any troubleshooting, many thanks
+AppleSupport: @777194 Got it. Let's start with restarting your iPhone. This can resolve many issues. If you're still seeing this stutter, send us a screen recording of this issue in DM. This link shows how to do this: https://t.co/4LuYBB7Kns DM us here: https://t.co/GDrqU22YpT
+
+[Case 2 | ID: apple_235261_2048_235272 | Sim: 0.7295]
+Customer: Good morning. I did the latest update on IOS 11 and my phone horribly stutters and jumps during scrolling. I did all the factory resets, cleaned it out etc Thank you
+AppleSupport: @281091 Let's take a closer look at this together. Please DM us and we can go from there. https://t.co/GDrqU22YpT
+
+[Case 3 | ID: apple_2814552_27589_2814553 | Sim: 0.6764]
+Customer: Ios 11.1.2 ..in all apps ..the behavior of the ipad is so slow and and stuttering like said before ...in ios 10.3.3 every thing was smooth and satisfactory
+AppleSupport: @784688 Alright, just to confirm, do you have any pending app updates available in the App Store? Let us know via DM what country you're currently located in as well. https://t.co/GDrqU22YpT",apple_2783273_27326_2783269,0.9032,"IOS 11.1.2 #latest realised so far, it’s stuttering most of the time after #FaceID and no I haven’t done any troubleshooting, many thanks","@777194 Got it. Let's start with restarting your iPhone. This can resolve many issues. If you're still seeing this stutter, send us a screen recording of this issue in DM. This link shows how to do this: https://t.co/4LuYBB7Kns DM us here: https://t.co/GDrqU22YpT",apple_235261_2048_235272,0.7295,"Good morning. I did the latest update on IOS 11 and my phone horribly stutters and jumps during scrolling. I did all the factory resets, cleaned it out etc Thank you",@281091 Let's take a closer look at this together. Please DM us and we can go from there. https://t.co/GDrqU22YpT,apple_2814552_27589_2814553,0.6764,Ios 11.1.2 ..in all apps ..the behavior of the ipad is so slow and and stuttering like said before ...in ios 10.3.3 every thing was smooth and satisfactory,"@784688 Alright, just to confirm, do you have any pending app updates available in the App Store? Let us know via DM what country you're currently located in as well. https://t.co/GDrqU22YpT","We understand you're experiencing an issue with iOS / Software. Here is standard guidance from Apple Support: Got it. Let's start with restarting your iPhone. This can resolve many issues. If you're still seeing this stutter, send us a screen recording of this issue in DM. This link shows how to do this: DM us here: If the issue persists, please let us know!",5,True,Standard troubleshooting guidance from Apple Support interaction,,YES,5,Response matches top-matched Case 1 verbatim (restart instructions + screen-recording request) and matches the actual stuttering-iPhone conversation almost word for word.
+171,apple_2686673_26407,auto_handle,iCloud / Backup / Data,"AppleSupport: @755512 Let's look into this together. Have you tried these steps? [LINK]
+Customer: @AppleSupport Tried iTunes restore and now it’s working fine. Thanks for the support.
+AppleSupport: @755512 We're very happy that you were able to resolve it. Don't ever hesitate if you have any questions or concerns.","[Case 1 | ID: apple_1293774_12573_1293778 | Sim: 0.8232]
+Customer: The problem is solved ! I installed itunes through Apple Software! Thank you for your answers anyway!
+AppleSupport: @422552 Glad to hear it's resolved! Feel free to reach out here if you have concerns in the future.
+
+[Case 2 | ID: apple_2346043_23421_2346044 | Sim: 0.8168]
+Customer: I got it to work after closing iTunes and restarting my computer. If it happens again I will DM you. Thanks for the quick response!
+AppleSupport: @678374 We are happy to hear all is working as expected again. Enjoy the rest of your day.
+
+[Case 3 | ID: apple_1560028_15071_1560027 | Sim: 0.8166]
+Customer: All good now . Uninstalled iTunes and reinstalled now it’s workin again .
+AppleSupport: @454566 Perfect. We are glad to hear that things are now working for you again.",apple_1293774_12573_1293778,0.8232,The problem is solved ! I installed itunes through Apple Software! Thank you for your answers anyway!,@422552 Glad to hear it's resolved! Feel free to reach out here if you have concerns in the future.,apple_2346043_23421_2346044,0.8168,I got it to work after closing iTunes and restarting my computer. If it happens again I will DM you. Thanks for the quick response!,@678374 We are happy to hear all is working as expected again. Enjoy the rest of your day.,apple_1560028_15071_1560027,0.8166,All good now . Uninstalled iTunes and reinstalled now it’s workin again .,@454566 Perfect. We are glad to hear that things are now working for you again.,"We understand you're experiencing an issue with iCloud / Backup / Data. Here is standard guidance from Apple Support: Glad to hear it's resolved! Feel free to reach out here if you have concerns in the future. If the issue persists, please let us know!",5,True,Standard troubleshooting guidance from Apple Support interaction,,YES,5,Response matches top-matched Case 1 verbatim ('glad to hear it's resolved') and matches the actual resolved iTunes-restore conversation.
+172,apple_938111_9183,escalate,iOS / Software,"AppleSupport: @342368 We can help. Tell us what you'e experiencing and we'll get started.
+Customer: @AppleSupport @342368 Due to the update, for the first time ever I looked into getting a Samsung.","[Case 1 | ID: apple_2862146_27914_2862142 | Sim: 0.6737]
+Customer: Updated I.T this morning ! Tried to make a keyboard shortcut and everything. Too many updates! Many people are saying Samsung is the better option! Rotten apple!
+AppleSupport: @784964 Try resetting the Keyboard Dictionary, then do a normal restart of the device & test it. Please let us know if this resolves your issue. How to reset the Keyboard Dictionary: Settings > General > Reset > Keyboard Dictionary Normal restart: https://t.co/OWRDHWSt4h
+
+[Case 2 | ID: apple_907501_8930_907502 | Sim: 0.6323]
+Customer: The latest one, I thought that updating my phone would help but it hasn’t.
+AppleSupport: @335501 Does this happen when using any specific app, or does it appear to be random? Which model iPhone do you have? Let us know in DM. https://t.co/GDrqU22YpT
+
+[Case 3 | ID: apple_2287753_22485_2287754 | Sim: 0.6172]
+Customer: The latest one and it was a mistake to update it because ever since the upgrade my entire phone has been glitching.
+AppleSupport: @664682 Thanks. Could you let us know specifically what issues you currently have with the device? Send us a DM. https://t.co/GDrqU22YpT",apple_2862146_27914_2862142,0.6737,Updated I.T this morning ! Tried to make a keyboard shortcut and everything. Too many updates! Many people are saying Samsung is the better option! Rotten apple!,"@784964 Try resetting the Keyboard Dictionary, then do a normal restart of the device & test it. Please let us know if this resolves your issue. How to reset the Keyboard Dictionary: Settings > General > Reset > Keyboard Dictionary Normal restart: https://t.co/OWRDHWSt4h",apple_907501_8930_907502,0.6323,"The latest one, I thought that updating my phone would help but it hasn’t.","@335501 Does this happen when using any specific app, or does it appear to be random? Which model iPhone do you have? Let us know in DM. https://t.co/GDrqU22YpT",apple_2287753_22485_2287754,0.6172,The latest one and it was a mistake to update it because ever since the upgrade my entire phone has been glitching.,@664682 Thanks. Could you let us know specifically what issues you currently have with the device? Send us a DM. https://t.co/GDrqU22YpT,"I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,NO,2,"Actual conversation shows the customer hasn't yet described a specific problem (just says they considered switching phones), so there's no failed troubleshooting to escalate; evidence involves customers who already described concrete issues."
+175,apple_667028_6677,clarify,Other / General,"AppleSupport: @278947 We recently released an iOS update, 11.1.2, that contains a fix for autocorrect issues. Let’s be sure to back up your device prior to updating. How to back up: [LINK]
+Customer: @AppleSupport @278947 Buuuurrrnn hahaha","[Case 1 | ID: apple_1288232_12533_1288237 | Sim: 0.4883]
+Customer: Duuuhhh
+AppleSupport: @421308 We're glad to hear you're running iOS 11.0.3. Please DM us and we can go from there. https://t.co/GDrqU22YpT
+
+[Case 2 | ID: apple_2408471_24067_2408472 | Sim: 0.4072]
+Customer: Thaaaaaaanks! 🤗
+AppleSupport: @692556 You bet. Let us know if you need anything else.
+
+[Case 3 | ID: apple_1543545_14952_1543546 | Sim: 0.4065]
+Customer: Thaaaaank yoooou
+AppleSupport: @435251 You're welcome! If you need any additional support, please let us know.",apple_1288232_12533_1288237,0.4883,Duuuhhh,@421308 We're glad to hear you're running iOS 11.0.3. Please DM us and we can go from there. https://t.co/GDrqU22YpT,apple_2408471_24067_2408472,0.4072,Thaaaaaaanks! 🤗,@692556 You bet. Let us know if you need anything else.,apple_1543545_14952_1543546,0.4065,Thaaaaank yoooou,"@435251 You're welcome! If you need any additional support, please let us know.","Could you please clarify which device, app, or feature is experiencing the issue?",5,True,Polite inquiry or specialist handoff,,NO,2,"Evidence is mixed (one DM-continuation case, two closing 'thanks' cases), but the actual customer reply is a non-informative joke ('Buuuurrrnn hahaha'), which doesn't clearly match either evidence pattern, so the generic clarifying question is only weakly supported."
+179,apple_1704600_17067,auto_handle,Other / General,"AppleSupport: @516681 Here’s what you can do to work around the issue until it’s fixed in a future software update: [LINK]
+Customer: @AppleSupport So in order to fix this we have to take 3 steps to get the letter eye? Bye. [LINK]","[Case 1 | ID: apple_1660026_16509_1660025 | Sim: 0.6660]
+Customer: The letter “eye” is typing out like this I and it’s ridiculous
+AppleSupport: @506422 Here’s what you can do to work around the issue until it’s fixed in a future software update: https://t.co/qODbOsGFo7
+
+[Case 2 | ID: apple_1564055_15092_1564056 | Sim: 0.6329]
+Customer: We can’t use the letter “eye” 😒 y’all know wtf going on
+AppleSupport: @482972 We can help. Check out this article for assistance: https://t.co/xU1AGHStV6
+
+[Case 3 | ID: apple_52989_616_52988 | Sim: 0.6233]
+Customer: The letter eye
+AppleSupport: @127938 Thanks for reaching out. DM which specific iOS version you are suing at this time so we can help. https://t.co/GDrqU22YpT",apple_1660026_16509_1660025,0.666,The letter “eye” is typing out like this I and it’s ridiculous,@506422 Here’s what you can do to work around the issue until it’s fixed in a future software update: https://t.co/qODbOsGFo7,apple_1564055_15092_1564056,0.6329,We can’t use the letter “eye” 😒 y’all know wtf going on,@482972 We can help. Check out this article for assistance: https://t.co/xU1AGHStV6,apple_52989_616_52988,0.6233,The letter eye,@127938 Thanks for reaching out. DM which specific iOS version you are suing at this time so we can help. https://t.co/GDrqU22YpT,"We understand you're experiencing an issue with Other / General. Here is standard guidance from Apple Support: Here’s what you can do to work around the issue until it’s fixed in a future software update: If the issue persists, please let us know!",3,False,General advice,Specific menu action,YES,5,"Response matches top-matched Case 1 verbatim ('here's what you can do to work around the issue'). Disagree with automated llm_evidence_judge (3/False, flagged 'specific menu action') -- the generated text contains no menu path beyond what's in the top evidence."
+180,apple_781849_7547,escalate,Other / General,"AppleSupport: @306652 Let's get you connected to our Final Cut Pro team. Please use this link to get in contact with them: [LINK]
+Customer: @AppleSupport Why? You only offer the option for me to call you and from what I can tell, all you'll tell me is I should film in the old codecs.","[Case 1 | ID: apple_44624_541_44625 | Sim: 0.4581]
+Customer: I can’t because it sends a code to the phone I can’t use??
+AppleSupport: @125905 Do you have access to a computer? If so, you can log into your Apple ID account page to make these changes shown in the guide.
+
+[Case 2 | ID: apple_2314096_23200_2314097 | Sim: 0.3959]
+Customer: I cannot make or receive calls, some videos will inexplicably not have sound, phone will go to lock screen when I haven’t touched the phone
+AppleSupport: @671030 Let's take a closer look starting with the calls. Currently what happens when you try to make or receive a call?
+
+[Case 3 | ID: apple_1867137_18843_1867138 | Sim: 0.3916]
+Customer: Camera didn’t recognize bar code? One of the kind store associates helped me out, but frustrating experience.
+AppleSupport: @557775 Does it appear to be working now? If not, let's pair up in DM to get a closer look at what happened here. https://t.co/GDrqU22YpT",apple_44624_541_44625,0.4581,I can’t because it sends a code to the phone I can’t use??,"@125905 Do you have access to a computer? If so, you can log into your Apple ID account page to make these changes shown in the guide.",apple_2314096_23200_2314097,0.3959,"I cannot make or receive calls, some videos will inexplicably not have sound, phone will go to lock screen when I haven’t touched the phone",@671030 Let's take a closer look starting with the calls. Currently what happens when you try to make or receive a call?,apple_1867137_18843_1867138,0.3916,"Camera didn’t recognize bar code? One of the kind store associates helped me out, but frustrating experience.","@557775 Does it appear to be working now? If not, let's pair up in DM to get a closer look at what happened here. https://t.co/GDrqU22YpT","I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,NO,2,"Actual conversation shows Apple already provided a specialist referral (Final Cut Pro team) and the customer is pushing back on that; evidence covers unrelated topics (account access, calls, camera), so it only weakly supports this specific escalate response."
+186,apple_2149179_21272,clarify,Other / General,"AppleSupport: @631651 Here’s what you can do to work around the issue until it’s fixed in a future software update: [LINK]
+Customer: @AppleSupport THANK U","[Case 1 | ID: apple_2813602_27582_2813600 | Sim: 1.0000]
+Customer: Thank u
+AppleSupport: @784486 You're welcome. Keep us posted on the results, please.
+
+[Case 2 | ID: apple_2280670_22244_2280671 | Sim: 1.0000]
+Customer: Thank u
+AppleSupport: @662980 You're very welcome. Don't hesitate to reach out to us if you run into any other issues.
+
+[Case 3 | ID: apple_1470004_14303_1470005 | Sim: 1.0000]
+Customer: Thank u
+AppleSupport: @461194 Let's have a look at this. Please DM us. https://t.co/GDrqU22YpT",apple_2813602_27582_2813600,1.0,Thank u,"@784486 You're welcome. Keep us posted on the results, please.",apple_2280670_22244_2280671,1.0,Thank u,@662980 You're very welcome. Don't hesitate to reach out to us if you run into any other issues.,apple_1470004_14303_1470005,1.0,Thank u,@461194 Let's have a look at this. Please DM us. https://t.co/GDrqU22YpT,"Could you please clarify which device, app, or feature is experiencing the issue?",5,True,Polite inquiry or specialist handoff,,NO,2,"Evidence is mixed for a 'Thank u' message (two closing acknowledgments, one 'let's look at this, DM'); the majority pattern is a closing exchange, so the generic clarifying question is only weakly supported."
+187,apple_23078_260,auto_handle,Other / General,"AppleSupport: @121027 This is not an expected nor does it sound normal. We can understand your view on this and would like to take a closer look. Can you let us know where this heat seems originate on the Mac? Send us a DM. [LINK]
+Customer: @AppleSupport Thank you for the prompt reply. I appreciate it, and have DM'd.","[Case 1 | ID: apple_877724_8611_877723 | Sim: 0.7225]
+Customer: I have DM’d you. Look forward to a response.
+AppleSupport: @296179 We've gotten it and will continue with you there. Be on the lookout for our message. Thanks!
+
+[Case 2 | ID: apple_1332748_12773_1332747 | Sim: 0.7060]
+Customer: Thanks for the response. I have sent a DM
+AppleSupport: @430904 Thanks! We'll meet you there to continue assisting. Watch your inbox for our reply. Thanks again!
+
+[Case 3 | ID: apple_2921562_28357_2921566 | Sim: 0.7059]
+Customer: I finally got a reply to my DM. Thanks!
+AppleSupport: @808571 We're still not showing as having received a DM from you. Privacy and security is very important to us, select the link included in this message to join us there. https://t.co/GDrqU22YpT",apple_877724_8611_877723,0.7225,I have DM’d you. Look forward to a response.,@296179 We've gotten it and will continue with you there. Be on the lookout for our message. Thanks!,apple_1332748_12773_1332747,0.706,Thanks for the response. I have sent a DM,@430904 Thanks! We'll meet you there to continue assisting. Watch your inbox for our reply. Thanks again!,apple_2921562_28357_2921566,0.7059,I finally got a reply to my DM. Thanks!,"@808571 We're still not showing as having received a DM from you. Privacy and security is very important to us, select the link included in this message to join us there. https://t.co/GDrqU22YpT","We understand you're experiencing an issue with Other / General. Here is standard guidance from Apple Support: We've gotten it and will continue with you there. Be on the lookout for our message. Thanks! If the issue persists, please let us know!",5,True,Standard troubleshooting guidance from Apple Support interaction,,YES,5,Response matches top-matched Case 1 verbatim ('we've gotten it and will continue with you there') and matches the actual conversation where the customer confirms they already DM'd.
+193,apple_505193_4843,escalate,iOS / Software,"AppleSupport: @235827 We'd like to help with the performance on your iPhone 8. Could you tell us what is happening?
+Customer: @AppleSupport iPhone 6+. Every app takes ages to open. I have done all the things suggested in forums including a factory re-set. No improvement whatsoever. The degradation in performance occurred immediately following the last upgrade.
+AppleSupport: @235827 Let's look into this a bit closer. Join us in DM using this link: [LINK]","[Case 1 | ID: apple_922093_9009_922094 | Sim: 0.7649]
+Customer: iPhone 6 running last version of iOS10 became terribly and unusually slow.
+AppleSupport: @338894 Thank you for letting us know. Please DM us via the following link and we'll help you from there. https://t.co/GDrqU22YpT
+
+[Case 2 | ID: apple_391219_3882_391220 | Sim: 0.7604]
+Customer: iPhone 6 though plan to upgrade soon. Service has slowed significantly, battery drains much quicker, I often can’t open email or access internet, etc
+AppleSupport: @208632 Let's partner together in DM where we can help with the behaviors you're running into, so you can enjoy iOS 11. https://t.co/GDrqU22YpT
+
+[Case 3 | ID: apple_178654_1582_178666 | Sim: 0.7524]
+Customer: New IOS made slower my iPhone 6
+AppleSupport: @273764 We'd like to help out with your iPhone 6. Would you mind sending us a DM with more information? https://t.co/GDrqU22YpT",apple_922093_9009_922094,0.7649,iPhone 6 running last version of iOS10 became terribly and unusually slow.,@338894 Thank you for letting us know. Please DM us via the following link and we'll help you from there. https://t.co/GDrqU22YpT,apple_391219_3882_391220,0.7604,"iPhone 6 though plan to upgrade soon. Service has slowed significantly, battery drains much quicker, I often can’t open email or access internet, etc","@208632 Let's partner together in DM where we can help with the behaviors you're running into, so you can enjoy iOS 11. https://t.co/GDrqU22YpT",apple_178654_1582_178666,0.7524,New IOS made slower my iPhone 6,@273764 We'd like to help out with your iPhone 6. Would you mind sending us a DM with more information? https://t.co/GDrqU22YpT,"I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,YES,5,"Evidence (iPhone 6 slow after iOS update, DM offered) closely matches the actual performance-degradation conversation and the specialist/DM escalation."
+195,apple_1964010_19605,escalate,Apple ID / Account,"AppleSupport: @176635 This email is missing some information that would be in an email from us. You can view more info here: [LINK]
+Customer: @AppleSupport I changed my email password . Is there anything else I can do ?
+AppleSupport: @176635 We know your account is important and we want to help you ensure everything is as secure as possible. DM us and we'll go from there. [LINK]
+Customer: @AppleSupport @176635 is there any official site to buy #Iphone through online site?
+AppleSupport: @508332 We want to help. Please tell us more about what you're trying to do via DM. [LINK]","[Case 1 | ID: apple_620143_6157_620144 | Sim: 0.6248]
+Customer: My iPhone..it keeps wanting me to put my password in for my exchange account then it says it’s wrong. I can’t even reset it through my actual email website.
+AppleSupport: @267186 Understood. Have you tried reaching out to your email service provider since you're having issues with their website as well?
+
+[Case 2 | ID: apple_146741_1257_146740 | Sim: 0.6076]
+Customer: I’m trying to buy the iPhone X but the site won’t let me buy it says we’re updating a few things
+AppleSupport: @149317 We're sorry to hear you're having an issue with your order. Our Sales Support team would be happy to assist you. You can reach out to them directly at https://t.co/8yjRd1Xo0i .
+
+[Case 3 | ID: apple_582770_5678_582771 | Sim: 0.5876]
+Customer: yes. but I purchased on an old Apple ID that was recently hacked and we cannot recover because my parents don't know the password & whoever hacked it changed the email & recovery email. So I'm logged in on my new apple account
+AppleSupport: @257414 App purchases are tied to the Apple ID and not the device. Have you spoken with our Account Security Team? You can reach them here: https://t.co/IBIY3vMgPj",apple_620143_6157_620144,0.6248,My iPhone..it keeps wanting me to put my password in for my exchange account then it says it’s wrong. I can’t even reset it through my actual email website.,@267186 Understood. Have you tried reaching out to your email service provider since you're having issues with their website as well?,apple_146741_1257_146740,0.6076,I’m trying to buy the iPhone X but the site won’t let me buy it says we’re updating a few things,@149317 We're sorry to hear you're having an issue with your order. Our Sales Support team would be happy to assist you. You can reach out to them directly at https://t.co/8yjRd1Xo0i .,apple_582770_5678_582771,0.5876,yes. but I purchased on an old Apple ID that was recently hacked and we cannot recover because my parents don't know the password & whoever hacked it changed the email & recovery email. So I'm logged in on my new apple account,@257414 App purchases are tied to the Apple ID and not the device. Have you spoken with our Account Security Team? You can reach them here: https://t.co/IBIY3vMgPj,"I’m sorry to hear the troubleshooting steps haven't resolved this. At this point, I recommend connecting directly with an Apple Support specialist who can look into your device and assist you further.",5,True,Polite inquiry or specialist handoff,,YES,4,"Evidence covers similar account-security and specialist-referral scenarios (password issues, sales/account security teams); the actual conversation's account-related exchange fits this general escalation pattern."
