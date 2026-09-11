@@ -6,7 +6,8 @@
 
 ## 1. Overview
 
-When a customer posts a support request on Twitter/X, this system acts as an evidence-grounded first-line triage assistant. The agent reconstructs the conversation context, predicts the customer's intent across a 12-class canonical taxonomy, and retrieves relevant historical AppleSupport interactions using dense FAISS vector search and lexical TF-IDF. A deterministic decision engine then routes the inquiry to `AUTO_HANDLE`, `CLARIFY`, or `ESCALATE` based on multi-turn dialogue context, customer frustration, repeated troubleshooting history, and retrieval confidence. If automated handling is safe, the agent synthesizes a natural-language response strictly grounded in retrieved historical AppleSupport cases using OpenRouter. Crucially, the system is designed to avoid unsupported answers and premature autonomous actions; it is an experimental decision-support prototype rather than an unattended, production-ready autonomous system.
+When a customer posts a support request on Twitter/X, this system acts as an evidence-grounded first-line triage assistant. The agent reconstructs the conversation context, predicts the customer's intent across a 12-class canonical taxonomy, and retrieves relevant historical AppleSupport interactions using dense FAISS vector search and lexical TF-IDF. A deterministic decision engine then routes the inquiry to `AUTO_HANDLE`, `CLARIFY`, or `ESCALATE` based on multi-turn dialogue context, customer frustration, repeated troubleshooting history, and retrieval confidence. If automated handling is safe, If automated handling is safe, the agent asks an OpenRouter LLM to synthesize a natural-language response from retrieved historical AppleSupport cases,
+with explicit grounding constraints and deterministic fallback handling. using OpenRouter. Crucially, the system is designed to avoid unsupported answers and premature autonomous actions; it is an experimental decision-support prototype rather than an unattended, production-ready autonomous system.
 
 ---
 
@@ -121,26 +122,135 @@ ai-customer-support-agent/
 
 ---
 
-## 6. Dataset & Reproducibility Scope
 
-Per the Hiver assignment instructions:
-> *"We will not run your code on the full dataset — a subsample is expected and encouraged."*
+## 6. Dataset Selection & Preprocessing
 
-The original Kaggle **Customer Support on Twitter** dataset contains roughly 3 million tweets across dozens of global brands. To maintain a focused, high-quality, and reproducible domain model, this project scopes the triage system exclusively to **AppleSupport** and uses a reproducible processed support-case corpus rather than requiring the reviewer to download or process the full 3M-tweet raw Kaggle archive (`twcs.csv`).
+The original Customer Support on Twitter dataset contains roughly 3M tweets.
+I used an offline preprocessing pipeline to construct a focused AppleSupport
+corpus from this large source dataset. The full 3M-tweet archive is not part of
+the runtime workflow and is not required for a reviewer to reproduce the
+included benchmark.
 
-### Dataset Breakdown
+### 1. Raw Dataset Inspection
 
-- **Original Kaggle Dataset**: ~3,000,000 tweets across multiple brands (not committed to Git).
-- **Selected Brand**: `AppleSupport`
-- **AppleSupport Relevant Tweets**: **143,518** (106,860 AppleSupport support tweets + 36,658 directly connected customer inquiries).
-- **Reconstructed Conversation Paths**: **28,772** multi-turn dialogue trees (stored in `data/apple_full_conversations.csv`).
-- **Total In-Path Messages**: **91,316** messages.
-- **Processed Historical Support Cases**: **22,738** support interaction pairs (`data/prepared_cases.jsonl`) used for retrieval and classifier training.
-- **Canonical Golden Set**: Exactly **200** human-reviewed conversations (`data/apple_goldset.csv`), used **strictly and exclusively for evaluation**.
+The raw dataset contains:
 
-*Note: Conversation paths were reconstructed using Twitter `in_reply_to_tweet_id` graph relationships. Reconstructed paths may contain graph-reconstruction imperfections, and historical 2017 tweets do not necessarily reflect current Apple support policies.*
+- `tweet_id`
+- `author_id`
+- `inbound`
+- `created_at`
+- `text`
+- `response_tweet_id`
+- `in_response_to_tweet_id`
 
-### Data Flow Architecture
+These fields were used to identify customer messages, AppleSupport responses,
+and relationships between messages.
+
+### 2. Brand Selection
+
+I selected `AppleSupport` as the target support brand.
+
+The filtering process first identified tweets associated with the
+AppleSupport account and then recovered customer messages directly connected
+to those support interactions.
+
+This produced:
+
+- 106,860 AppleSupport support tweets
+- 36,658 directly connected customer tweets
+- 143,518 relevant tweets
+
+### 3. Conversation Reconstruction
+
+Individual tweets are not sufficient for evaluating a support agent because
+the meaning of a customer message can depend on previous turns.
+
+I therefore used the dataset's response relationship fields:
+
+- `response_tweet_id`
+- `in_response_to_tweet_id`
+
+to reconstruct conversation paths.
+
+This produced:
+
+- 83,470 potential conversation roots
+- 28,772 reconstructed conversation paths
+- 91,316 messages across the reconstructed conversations
+
+The reconstruction is treated as an approximation because the source dataset
+does not guarantee that every conversation can be perfectly recovered.
+
+### 4. Support-Case Preparation
+
+The reconstructed conversations were then transformed into historical
+support cases suitable for retrieval.
+
+Preprocessing included:
+
+- separating customer and AppleSupport messages
+- identifying support-response relationships
+- removing unusable/incomplete records
+- normalizing text for retrieval
+- retaining the customer issue together with its historical AppleSupport
+  resolution
+- preserving conversation context where available
+- generating stable case/conversation identifiers
+
+This produced `22,738` prepared historical support cases.
+
+These cases form the runtime retrieval corpus used by the agent.
+
+### 5. Data Validation
+
+Before the processed corpus is used for retrieval or classification, the
+pipeline performs structural and integrity checks:
+
+- validates the expected input schema
+- validates customer/AppleSupport message roles
+- checks response relationships used for conversation reconstruction
+- filters incomplete or unusable support cases
+- validates prepared case identifiers and required fields
+- checks for Golden Set overlap before retrieval index construction
+- verifies zero Golden Set leakage into the runtime corpus
+
+These checks are intended to catch malformed records and evaluation leakage;
+they do not guarantee that every reconstructed conversation is semantically
+perfect.
+
+### 6. Retrieval Index
+
+The prepared cases were indexed using semantic embeddings with
+`all-MiniLM-L6-v2` and FAISS.
+
+At runtime, an incoming customer message is embedded and matched against the
+prepared AppleSupport historical cases to retrieve relevant evidence.
+
+### 7. Golden Set Isolation
+
+The 200-example Golden Set was kept completely separate from this pipeline.
+
+It is used only for evaluation and was not used for:
+
+- training
+- retrieval
+- prompting
+- few-shot examples
+- threshold tuning
+- model development
+
+This separation prevents evaluation leakage.
+
+### 8.  Dataset Scope
+
+The full ~3M-tweet Kaggle dataset is not required at runtime or for reproducing
+the benchmark. The large raw dataset is used as the source from which the
+focused AppleSupport corpus is constructed offline.
+
+The repository contains the processed artifacts required for the documented
+runtime and evaluation workflow.
+
+### 9.  Data Flow Architecture
 
 ```
 Original Kaggle Dataset (~3M tweets)
@@ -228,7 +338,6 @@ MONGODB_DATABASE=hiver_support
 # OpenRouter LLM Configuration
 OPENROUTER_API_KEY=your_openrouter_api_key_here
 OPENROUTER_MODEL=openrouter/free
-OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
 ```
 
 *(No secrets or live keys are committed in the repository.)*
