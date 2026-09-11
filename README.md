@@ -121,18 +121,71 @@ ai-customer-support-agent/
 
 ---
 
-## 6. Dataset
+## 6. Dataset & Reproducibility Scope
 
-The system is trained and evaluated using the public Kaggle **Customer Support on Twitter** dataset, scoped exclusively to **AppleSupport**:
+Per the Hiver assignment instructions:
+> *"We will not run your code on the full dataset — a subsample is expected and encouraged."*
 
-- **AppleSupport Support Tweets**: 106,860
-- **Directly Connected Customer Tweets**: 36,658
-- **Relevant Tweets Analyzed**: 143,518
-- **Reconstructed Conversation Paths**: 28,772
-- **Total In-Path Messages**: 91,316
-- **Processed Historical Support Cases**: 22,738 (stored in `data/prepared_cases.jsonl`)
+The original Kaggle **Customer Support on Twitter** dataset contains roughly 3 million tweets across dozens of global brands. To maintain a focused, high-quality, and reproducible domain model, this project scopes the triage system exclusively to **AppleSupport** and uses a reproducible processed support-case corpus rather than requiring the reviewer to download or process the full 3M-tweet raw Kaggle archive (`twcs.csv`).
 
-*Note: Conversation paths are reconstructed using Twitter tweet-in-response-to relationships. Reconstructed paths may contain graph-reconstruction imperfections, and historical messages do not necessarily reflect current Apple support policies.*
+### Dataset Breakdown
+
+- **Original Kaggle Dataset**: ~3,000,000 tweets across multiple brands (not committed to Git).
+- **Selected Brand**: `AppleSupport`
+- **AppleSupport Relevant Tweets**: **143,518** (106,860 AppleSupport support tweets + 36,658 directly connected customer inquiries).
+- **Reconstructed Conversation Paths**: **28,772** multi-turn dialogue trees (stored in `data/apple_full_conversations.csv`).
+- **Total In-Path Messages**: **91,316** messages.
+- **Processed Historical Support Cases**: **22,738** support interaction pairs (`data/prepared_cases.jsonl`) used for retrieval and classifier training.
+- **Canonical Golden Set**: Exactly **200** human-reviewed conversations (`data/apple_goldset.csv`), used **strictly and exclusively for evaluation**.
+
+*Note: Conversation paths were reconstructed using Twitter `in_reply_to_tweet_id` graph relationships. Reconstructed paths may contain graph-reconstruction imperfections, and historical 2017 tweets do not necessarily reflect current Apple support policies.*
+
+### Data Flow Architecture
+
+```
+Original Kaggle Dataset (~3M tweets)
+           │
+           ▼
+AppleSupport Selection (143,518 tweets)
+           │
+           ▼
+Conversation Reconstruction (28,772 paths)
+           │
+           ▼
+Prepared Support Cases (22,738 cases)
+           │
+           ▼
+Retrieval Indexes (TF-IDF + FAISS)
+           │
+           ▼
+Runtime Support Agent
+
+────────────────────────────────────────────
+Separately Isolated:
+
+Human-Reviewed Golden Set (200 cases)
+           │
+           ▼
+Deterministic Evaluation Harness (Phase 8 & 10)
+```
+
+### Strict Golden Set Isolation
+The canonical evaluation file `data/apple_goldset.csv` contains 200 human-audited conversations. To ensure zero data leakage and preserve evaluation integrity:
+- **NOT used for training** (the intent classifier was fitted only on historical prepared cases).
+- **NOT used for retrieval** (asserted at index build time: zero overlap between indexed case IDs and Golden Set conversation IDs).
+- **NOT used for prompt few-shot examples** or in-context demonstrations.
+- **NOT used for threshold tuning** or hyperparameter optimization.
+- **Strictly read-only evaluation benchmark**.
+
+### What a Reviewer Needs
+A reviewer **does NOT need to download or process the full 3M-tweet Kaggle dataset**:
+1. **Pre-Built Runtime Artifacts**: The repository already includes all processed data and model artifacts:
+   - `data/prepared_cases.jsonl` (22,738 processed cases)
+   - `backend/models/intent_classifier.joblib` (trained 12-class classifier)
+   - `backend/models/semantic_faiss.index` & `semantic_faiss_metadata.json` (dense vector index)
+   - `backend/models/tfidf_retriever.joblib` (lexical retriever)
+2. **Pre-Packaged Benchmark Set**: The 200-conversation Golden Set (`data/apple_goldset.csv`) is already present for deterministic evaluation.
+3. **Running the Project**: Reviewers only need Python 3.12 and the virtual environment dependencies (`requirements.txt`) to run the backend API or reproduce the complete evaluation benchmark in under 15 minutes.
 
 ---
 
@@ -450,22 +503,22 @@ Test coverage includes:
 
 ## 19. Reproducibility Guide
 
-All steps can be reproduced from the `backend/` directory:
+All steps can be reproduced directly from the `backend/` directory using the included dataset files (`data/prepared_cases.jsonl` and `data/apple_goldset.csv`). No download or processing of the raw 3M-tweet Kaggle archive is required.
 
 ```powershell
-# 1. Extract support cases from raw conversation data (enforces zero-leakage)
+# 1. (Optional) Re-extract cases from included Apple subset (data/apple_full_conversations.csv)
 python scripts/prepare_cases.py --no-mongo
 
-# 2. Rebuild TF-IDF lexical index
+# 2. (Optional) Rebuild TF-IDF lexical index from prepared cases
 python scripts/build_retrieval_index.py
 
-# 3. Rebuild dense FAISS semantic vector index
+# 3. (Optional) Rebuild dense FAISS semantic vector index
 python scripts/build_semantic_index.py
 
-# 4. Retrain supervised 12-class intent classifier
+# 4. (Optional) Retrain supervised 12-class intent classifier
 python scripts/train_classifier.py
 
-# 5. Execute Golden Set evaluation harness
+# 5. Execute Golden Set evaluation harness (runs out-of-the-box on apple_goldset.csv)
 python evaluation/run_evaluation.py
 
 # 6. Run Phase 8A diagnostic error breakdown
@@ -474,6 +527,8 @@ python evaluation/diagnose_decisions.py
 # 7. Run Phase 10 before/after comparison benchmark
 python evaluation/phase10_benchmark.py
 ```
+
+*(Note: Pre-built models are already packaged in `backend/models/`, so steps 5–7 can be executed immediately without retraining or re-indexing.)*
 
 ---
 
@@ -519,5 +574,5 @@ python evaluation/phase10_benchmark.py
 ## 23. Dataset & License Attribution
 
 - **Dataset**: Kaggle *Customer Support on Twitter* dataset (`twcs.csv`).
-- Raw data files are excluded from redistribution; users may acquire the raw dataset directly from Kaggle.
+- The full 3M-tweet Kaggle archive is excluded from Git per assignment guidelines encouraging subsampling; all code, pre-built model artifacts, and reproducible AppleSupport datasets needed to run and benchmark the system are included in the repository.
 - All code and evaluation harnesses are developed as part of the Hiver SDE Intern technical assessment.
