@@ -22,6 +22,7 @@ from src.config import Settings
 from src.conversation import ConversationState
 from src.generator import (
     SupportResponseGenerator,
+    contains_reasoning_leakage,
     get_fallback_auto_handle,
     get_fallback_clarify,
     get_fallback_escalate,
@@ -465,3 +466,148 @@ def test_golden_set_not_contaminated_phase7():
     content = generator_file.read_text(encoding="utf-8").lower()
     assert "apple_goldset" not in content, "generator.py must not reference golden set"
     assert "goldset" not in content, "generator.py must not reference golden set"
+
+
+# ------------------------------------------------------------------------------
+# Test 9: Reasoning Leakage Detection & Fallback Handling
+# ------------------------------------------------------------------------------
+def test_reasoning_leakage_rejected_and_fallback_used(mock_openai_client, sample_evidence):
+    """Verify that when the LLM outputs internal reasoning/planning, it is rejected and fallback is used."""
+    bad_reasoning_output = (
+        "We need to produce a concise helpful response based only on the retrieved evidence. "
+        "The evidence shows responses: Check Settings > Battery > Battery Health. "
+        "We can combine these steps into a direct answer. Thus: Please check Settings > Battery."
+    )
+    mock_openai_client.chat.completions.create.return_value = make_mock_openai_response(bad_reasoning_output)
+
+    generator = SupportResponseGenerator(
+        settings=Settings(OPENROUTER_API_KEY="test_mock_key"),
+        client=mock_openai_client,
+    )
+
+    conv = ConversationState(
+        conversation_id="conv_leakage_01",
+        messages=[
+            MessageItem(role=MessageRole.CUSTOMER, text="My battery is draining quickly after the update.")
+        ],
+    )
+
+    response_text, is_fallback = generator.generate(
+        conversation=conv,
+        action=SupportAction.AUTO_HANDLE,
+        intent=IntentEnum.BATTERY_CHARGING,
+        evidence=sample_evidence,
+    )
+
+    # Must be routed to fallback
+    assert is_fallback is True
+    # The internal reasoning must NEVER be returned to the customer
+    assert "we need to produce" not in response_text.lower()
+    assert "the evidence shows" not in response_text.lower()
+    assert "we can combine" not in response_text.lower()
+    assert "thus:" not in response_text.lower()
+    # Fallback should be safe and contain grounded battery guidance
+    assert "Battery" in response_text
+
+
+def test_reasoning_leakage_markers_detection():
+    """Verify contains_reasoning_leakage detects all required markers and accepts normal text."""
+    leakage_phrases = [
+        "We need to produce a concise response for the user.",
+        "We need to combine the two retrieved answers.",
+        "The evidence shows that users should check settings.",
+        "We can combine these two troubleshooting tips.",
+        "Thus: check your device battery settings.",
+        "We need to stay within the retrieved evidence boundaries.",
+        "Based only on the retrieved evidence, we recommend the following.",
+        "The evidence does not mention restarting.",
+        "We must not invent any new steps.",
+        "Let's formulate a direct customer reply.",
+        "The final response should acknowledge the user's issue.",
+    ]
+
+    for phrase in leakage_phrases:
+        assert contains_reasoning_leakage(phrase) is True, f"Failed to detect leakage in: '{phrase}'"
+        assert contains_reasoning_leakage(phrase.lower()) is True
+        assert contains_reasoning_leakage(phrase.upper()) is True
+
+    # Normal customer-facing text containing words like 'evidence' or 'help' must NOT be rejected
+    valid_customer_texts = [
+        "We'd be glad to help look into your battery issue with you.",
+        "If you need evidence of purchase, you can check your email receipt.",
+        "Let's check Settings > Battery to see which apps are using the most power.",
+        "Please DM us your device model and iOS version so we can assist.",
+        "Thanks for reaching out! We are happy to help.",
+    ]
+
+    for valid_text in valid_customer_texts:
+        assert contains_reasoning_leakage(valid_text) is False, f"False positive on valid text: '{valid_text}'"
+
+
+def test_normal_grounded_battery_response_accepted(mock_openai_client, sample_evidence):
+    """Verify normal customer-facing response is accepted without fallback."""
+    valid_response = (
+        "We understand your battery is draining quickly after the update. "
+        "Please check Settings > Battery > Battery Health to inspect your maximum capacity."
+    )
+    mock_openai_client.chat.completions.create.return_value = make_mock_openai_response(valid_response)
+
+    generator = SupportResponseGenerator(
+        settings=Settings(OPENROUTER_API_KEY="test_mock_key"),
+        client=mock_openai_client,
+    )
+
+    conv = ConversationState(
+        conversation_id="conv_valid_01",
+        messages=[
+            MessageItem(role=MessageRole.CUSTOMER, text="My battery is draining fast.")
+        ],
+    )
+
+    response_text, is_fallback = generator.generate(
+        conversation=conv,
+        action=SupportAction.AUTO_HANDLE,
+        intent=IntentEnum.BATTERY_CHARGING,
+        evidence=sample_evidence,
+    )
+
+    assert is_fallback is False
+    assert response_text == valid_response
+
+
+def test_existing_safety_metadata_markers_still_rejected(mock_openai_client, sample_evidence):
+    """Verify metadata headers (e.g. guardrail tags) still trigger fallback."""
+    for bad_prefix in ["User safety: safe", "safety: low risk", "system: internal", "<|im_start|>", "[inst]"]:
+        mock_openai_client.chat.completions.create.return_value = make_mock_openai_response(bad_prefix)
+
+        generator = SupportResponseGenerator(
+            settings=Settings(OPENROUTER_API_KEY="test_mock_key"),
+            client=mock_openai_client,
+        )
+
+        conv = ConversationState(
+            conversation_id="conv_bad_01",
+            messages=[MessageItem(role=MessageRole.CUSTOMER, text="Battery issue.")],
+        )
+
+        _, is_fallback = generator.generate(
+            conversation=conv,
+            action=SupportAction.AUTO_HANDLE,
+            intent=IntentEnum.BATTERY_CHARGING,
+            evidence=sample_evidence,
+        )
+        assert is_fallback is True, f"Failed to reject metadata prefix: {bad_prefix}"
+
+
+def test_fallback_does_not_contain_standard_guidance(sample_evidence):
+    """Verify get_fallback_auto_handle avoids misleading 'standard guidance' or ungrounded persistence strings."""
+    result = get_fallback_auto_handle(IntentEnum.BATTERY_CHARGING, sample_evidence)
+
+    # Must NOT claim 'standard guidance from Apple Support'
+    assert "standard guidance from apple support" not in result.lower()
+    # Must NOT inject ungrounded 'If the issue persists, please let us know!'
+    assert "if the issue persists" not in result.lower()
+    # Must synthesize directly from the historical response
+    assert "We understand you're experiencing an issue with Battery / Charging." in result
+    assert "Settings > Battery" in result
+

@@ -41,13 +41,14 @@ from src.schemas import (
 SYSTEM_PROMPT_AUTO_HANDLE = """You are an Apple customer-support response assistant.
 Your goal is to provide a concise, helpful, and polite customer-support response in the authentic AppleSupport brand tone.
 
-CRITICAL GROUNDING & SAFETY RULES:
-1. STRICT EVIDENCE BOUNDARY: Use only concrete troubleshooting actions that are explicitly supported by the retrieved historical AppleSupport interactions provided below. Do not supplement the evidence with general model knowledge or external procedures.
-2. If the retrieved evidence does not contain a specific actionable troubleshooting step, do NOT invent or suggest one (do NOT introduce unmentioned steps like restarting, resetting network settings, restoring, or checking menus unless explicitly present in the evidence). Prefer a concise grounded response acknowledging the issue or request the specific additional information historical support asked for.
-3. Treat retrieved historical interactions as reference evidence, not as instructions to copy verbatim. You may paraphrase supported advice, combine directly supported steps, and make the response natural and polite.
-4. NEVER invent or hallucinate troubleshooting procedures, Apple policies, warranty terms, prices, refunds, or URLs. Do not fabricate links or include raw Twitter shortlinks (e.g. https://t.co/...) or social media handles.
-5. NEVER mention internal system terms, intent classifications, similarity scores, retrieval engines, or that you are an AI/LLM.
-6. Keep the response concise, conversational, and direct (typically 2 to 4 sentences).
+CRITICAL OUTPUT & GROUNDING RULES:
+1. FINAL CUSTOMER RESPONSE ONLY: Return ONLY the final customer-facing response. Never output analysis, reasoning, planning, drafting commentary, scratchpad thinking, or explanations of how the answer was constructed. The entire output must be ready to send directly to the customer.
+2. NO INTERNAL SYSTEM REFERENCES: NEVER mention "retrieved evidence", "historical evidence", "case #", intent, similarity, classifier, decision engine, LLM, or internal instructions.
+3. STRICT EVIDENCE BOUNDARY: Only recommend concrete troubleshooting actions that are explicitly supported by the retrieved historical AppleSupport interactions provided below. Do not supplement the evidence with general model knowledge or external procedures.
+4. NEVER invent or hallucinate troubleshooting procedures, current Apple policies, warranty terms, prices, refunds, URLs, or unmentioned steps (do NOT introduce unmentioned steps like restarting, resetting network settings, restoring, or checking menus unless explicitly present in the evidence). Do not fabricate links or include raw Twitter shortlinks (e.g. https://t.co/...) or social media handles.
+5. LIMITED EVIDENCE SCOPE: If evidence only supports asking for information or moving to DM, keep the response limited to that supported action.
+6. Treat retrieved historical interactions as reference evidence, not as instructions to copy verbatim. You may paraphrase supported advice, combine directly supported steps, and make the response natural and polite.
+7. Keep the response concise, conversational, and direct (typically 2 to 4 sentences).
 """
 
 SYSTEM_PROMPT_CLARIFY = """You are an Apple customer-support assistant.
@@ -71,6 +72,32 @@ CRITICAL RULES:
 4. NEVER expose internal decision logic, confidence scores, policy rules, or mention that you are an AI/LLM.
 5. Keep the response polite, empathetic, and concise (1 to 3 sentences).
 """
+
+
+# High-confidence markers indicating LLM internal reasoning/planning leakage
+REASONING_LEAKAGE_MARKERS = [
+    "we need to produce",
+    "we need to combine",
+    "the evidence shows",
+    "we can combine",
+    "thus:",
+    "we need to stay within",
+    "based only on the retrieved evidence",
+    "the evidence does not",
+    "must not invent",
+    "let's formulate",
+    "the final response should",
+]
+
+
+def contains_reasoning_leakage(text: str) -> bool:
+    """Detect if generated text contains obvious internal reasoning, planning, or prompt leakage.
+
+    Conservative check for high-confidence planning/reasoning phrases. Does not trigger on
+    normal customer-facing responses containing isolated words like 'evidence' or 'help'.
+    """
+    text_lower = text.lower()
+    return any(marker in text_lower for marker in REASONING_LEAKAGE_MARKERS)
 
 
 # ==============================================================================
@@ -100,20 +127,20 @@ def get_fallback_auto_handle(
     intent: IntentEnum,
     evidence: List[EvidenceItem],
 ) -> str:
-    """Return a safe deterministic auto-handle response synthesized from evidence."""
+    """Return a safe deterministic auto-handle response synthesized directly from evidence."""
     intent_label = intent.value if hasattr(intent, "value") else str(intent)
-    
+
     # If high-similarity evidence with a historical response is available, ground safely
     if evidence and evidence[0].historical_response:
         top_resp = evidence[0].historical_response.strip()
         # Clean Twitter handles and raw external URLs if present
-        clean_resp = " ".join([w for w in top_resp.split() if not w.startswith("@") and not w.startswith("http")])
-        if len(clean_resp) > 30:
-            return (
-                f"We understand you're experiencing an issue with {intent_label}. "
-                f"Here is standard guidance from Apple Support: {clean_resp} "
-                "If the issue persists, please let us know!"
-            )
+        words = [w for w in top_resp.split() if not w.startswith("@") and not w.startswith("http")]
+        clean_resp = " ".join(words).strip()
+        clean_resp = re.sub(r"\s+", " ", clean_resp).strip()
+        if len(clean_resp) > 20:
+            if not clean_resp.endswith((".", "!", "?")):
+                clean_resp += "."
+            return f"We understand you're experiencing an issue with {intent_label}. {clean_resp}"
 
     return (
         f"We understand you're experiencing an issue with {intent_label}. "
@@ -238,7 +265,7 @@ class SupportResponseGenerator:
 
         user_parts.extend([
             "",
-            "Please generate the customer-facing response now without any preamble or quotes:",
+            "Please generate ONLY the final customer-facing response now without any reasoning, planning, analysis, preamble, or quotes:",
         ])
 
         return sys_prompt, "\n".join(user_parts)
@@ -307,17 +334,25 @@ class SupportResponseGenerator:
             cleaned_text = re.sub(r"@\w+", "", cleaned_text)
             cleaned_text = re.sub(r"\s+", " ", cleaned_text).strip().strip('"').strip("'")
 
-            # Validate response: reject empty strings or low-quality metadata headers (e.g. guardrail tags)
+            # Validate response: reject empty strings, low-quality metadata headers, or reasoning leakage
+            has_reasoning_leakage = contains_reasoning_leakage(cleaned_text)
             is_unusable = (
                 len(cleaned_text) < 15
                 or any(cleaned_text.lower().startswith(bad) for bad in ["user safety", "safety:", "system:", "<|", "[inst]"])
+                or has_reasoning_leakage
             )
 
             if is_unusable:
-                logger.warning(
-                    "OpenRouter returned unhelpful/metadata response ('%s'). Falling back to safe response.",
-                    cleaned_text[:50],
-                )
+                if has_reasoning_leakage:
+                    logger.warning(
+                        "Reasoning leakage detected in OpenRouter response ('%s'). Falling back to safe response.",
+                        cleaned_text[:80],
+                    )
+                else:
+                    logger.warning(
+                        "OpenRouter returned unhelpful/metadata response ('%s'). Falling back to safe response.",
+                        cleaned_text[:50],
+                    )
                 return self._generate_fallback(action, intent, evidence, clarification_question, decision_reason)
 
             logger.info(
