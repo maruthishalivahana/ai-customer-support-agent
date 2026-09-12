@@ -679,6 +679,50 @@ python evaluation/phase10_benchmark.py
    - Open `backend/evaluation/results/phase10_comparison.md` to review the empirical -82.8% reduction in false-positive escalations.
 
 ---
+## What I Would Do With One More Week
+
+If I had one more week, I would prioritize improvements based on the failure
+analysis rather than adding more features.
+
+1. **Improve intent classification (P0)**  
+   The 52% intent accuracy on the 200-example Golden Set is the largest
+   quality bottleneck. I would add more human-reviewed training examples,
+   especially for low-performing intents such as App Issue, Settings /
+   Features, Messages / Calling, and Apple ID / Account, and use the observed
+   confusion matrix to guide the additional labeling.
+
+2. **Improve multi-turn context handling (P0)**  
+   I would make frustration, resolution, and repeated-troubleshooting
+   detection more context-aware instead of relying primarily on deterministic
+   phrase patterns. This should reduce both missed escalations and unnecessary
+   escalations caused by short conversational messages.
+
+3. **Build a labeled retrieval benchmark (P1)**  
+   The current retrieval comparison is diagnostic because the corpus does not
+   have formal relevance labels. I would label a small retrieval evaluation
+   set and measure Recall@K and MRR, allowing retrieval improvements to be
+   measured independently from downstream response quality.
+
+4. **Improve evidence selection for generation (P1)**  
+   When several historical cases are similarly relevant, I would rank evidence
+   by both semantic similarity and resolution specificity, so the generator
+   is more likely to use the most directly applicable historical resolution.
+
+5. **Calibrate the evaluation judge (P1)**  
+   The human-vs-LLM evidence audit showed only 58% exact binary agreement and
+   Cohen's κ of -0.078. I would expand the human audit set, refine the judging
+   rubric with disagreement examples, and calibrate the judge before relying
+   on it for broader regression testing.
+
+6. **Add production-oriented observability (P2)**  
+   I would add latency, retrieval confidence, fallback frequency, decision
+   distributions, and escalation reasons to structured monitoring so that
+   failures can be detected and investigated after deployment.
+
+The goal would not be to maximize a single benchmark number. I would first
+improve the weakest measurable components—intent classification, retrieval
+quality, and evaluator reliability—while preserving the conservative safety
+behavior of the decision engine.
 
 ## 23. Dataset & License Attribution
 

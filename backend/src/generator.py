@@ -114,11 +114,143 @@ def get_fallback_clarify(clarification_question: Optional[str] = None) -> str:
     )
 
 
-def get_fallback_escalate(reason: Optional[str] = None) -> str:
-    """Return a deterministic escalation handoff fallback."""
+def get_fallback_escalate(
+    reason: Optional[str] = None,
+    evidence: Optional[List[EvidenceItem]] = None,
+    conversation: Optional[ConversationState] = None,
+) -> str:
+    """Return an empathetic, action- and context-aware escalation handoff fallback.
+
+    Ensures:
+    1. Historical evidence handoff is used when applicable.
+    2. Physical damage inquiries recommend specialist assistance without falsely
+       claiming troubleshooting occurred.
+    3. Prior troubleshooting is referenced only if troubleshooting actually took place.
+    4. Never invents repair prices, warranties, appointment slots, procedures, or URLs.
+    """
+    reason_str = (reason or "").lower()
+
+    # Extract conversation context if available
+    customer_text = ""
+    had_troubleshooting_in_conversation = False
+    device_type = "device"
+
+    if conversation is not None:
+        try:
+            customer_text = conversation.get_full_customer_text().lower()
+        except Exception:
+            customer_text = ""
+
+        # Check for mentioned Apple hardware devices
+        for dev_keyword, dev_display in [
+            ("iphone", "iPhone"),
+            ("ipad", "iPad"),
+            ("macbook", "Mac"),
+            ("imac", "Mac"),
+            ("mac", "Mac"),
+            ("apple watch", "Apple Watch"),
+            ("watch", "Apple Watch"),
+            ("airpods", "AirPods"),
+            ("airpod", "AirPods"),
+        ]:
+            if dev_keyword in customer_text:
+                device_type = dev_display
+                break
+
+        # Check if conversation history has prior assistant turns
+        if len(conversation.assistant_messages) > 0:
+            had_troubleshooting_in_conversation = True
+
+    # 1. Did troubleshooting actually occur?
+    troubleshooting_indicators = [
+        "troubleshooting",
+        "already tried",
+        "tried that",
+        "that didn't help",
+        "didn't work",
+        "still having problems",
+        "still not working",
+        "not resolved",
+        "unsuccessful",
+    ]
+    troubleshooting_occurred = (
+        any(ind in reason_str for ind in ["troubleshooting", "unsuccessful"])
+        or any(ind in customer_text for ind in troubleshooting_indicators)
+        or had_troubleshooting_in_conversation
+    )
+
+    # 2. Check for physical hardware damage or hazard
+    hardware_damage_patterns = [
+        r"\b(cracked|shattered|broken\s+glass|water\s+damage|liquid|dropped\s+in\s+water|swollen|smoke|spark|burnt)\b",
+        r"\b(dropped|smashed).*(screen|iphone|phone|ipad|mac|device)\b",
+        r"\b(screen|display)\s+is\s+(shattered|cracked|broken)\b",
+    ]
+    is_hardware_damage = (
+        "hardware damage" in reason_str
+        or "hazard" in reason_str
+        or any(re.search(pat, customer_text) for pat in hardware_damage_patterns)
+        or any(re.search(pat, reason_str) for pat in hardware_damage_patterns)
+    )
+
+    # 3. Check for explicit human agent request
+    is_human_request = (
+        "explicitly requested" in reason_str
+        or "requested assistance from a human" in reason_str
+        or bool(re.search(r"\b(speak|talk|transfer|connect)\s+(to\s+|me\s+to\s+)?(a\s+)?(human|agent|person|representative)\b", customer_text))
+    )
+
+    # Priority 1: Evidence-grounded handoff if available and applicable
+    if evidence:
+        for ev in evidence[:2]:
+            hist_resp = (ev.historical_response or "").strip()
+            if not hist_resp:
+                continue
+            hist_resp_lower = hist_resp.lower()
+            # Must NOT contain troubleshooting instructions if escalating
+            has_troubleshooting_steps = any(
+                step in hist_resp_lower
+                for step in ["settings >", "restart", "reboot", "reset network", "force restart", "restore"]
+            )
+            if has_troubleshooting_steps:
+                continue
+
+            # Look for options or specialist handoff phrasing
+            if "option" in hist_resp_lower and ("look" in hist_resp_lower or "review" in hist_resp_lower):
+                if is_hardware_damage:
+                    return (
+                        f"We'd like to take a look at some options for your damaged {device_type}. "
+                        "Please connect with an Apple Support specialist so we can help you with the next steps."
+                    )
+                else:
+                    return (
+                        f"We'd like to review available options for your {device_type}. "
+                        "Please connect with an Apple Support specialist so we can assist you further."
+                    )
+
+    # Priority 2: Verified repeated troubleshooting failure
+    if troubleshooting_occurred:
+        return (
+            "I’m sorry to hear the troubleshooting steps haven't resolved this. "
+            "At this point, I recommend connecting directly with an Apple Support specialist "
+            "who can look into your device and assist you further."
+        )
+
+    # Priority 3: Physical hardware damage / hazard handoff
+    if is_hardware_damage:
+        return (
+            f"We'd like to take a look at some options for your damaged {device_type}. "
+            "Please connect with an Apple Support specialist so we can help you with the next steps."
+        )
+
+    # Priority 4: Explicit human agent request
+    if is_human_request:
+        return (
+            "I'd be glad to connect you with an Apple Support specialist who can assist you further."
+        )
+
+    # Priority 5: Safe default escalation (no prior troubleshooting claimed)
     return (
-        "I’m sorry to hear the troubleshooting steps haven't resolved this. "
-        "At this point, I recommend connecting directly with an Apple Support specialist "
+        "I recommend connecting directly with an Apple Support specialist "
         "who can look into your device and assist you further."
     )
 
@@ -296,8 +428,10 @@ class SupportResponseGenerator:
 
         # If client not available or no API key, use deterministic fallback
         if client is None:
-            logger.info("Using deterministic fallback generation for action '%s'.", action)
-            return self._generate_fallback(action, intent, evidence, clarification_question, decision_reason)
+            logger.info("Fallback triggered (reason: llm_unavailable) for action '%s'.", action.value if hasattr(action, "value") else str(action))
+            return self._generate_fallback(
+                action, intent, evidence, clarification_question, decision_reason, conversation=conversation
+            )
 
         sys_prompt, user_prompt = self._build_context_prompt(
             conversation=conversation,
@@ -336,24 +470,35 @@ class SupportResponseGenerator:
 
             # Validate response: reject empty strings, low-quality metadata headers, or reasoning leakage
             has_reasoning_leakage = contains_reasoning_leakage(cleaned_text)
+            is_empty = len(raw_text.strip()) == 0 or len(cleaned_text) == 0
             is_unusable = (
-                len(cleaned_text) < 15
+                is_empty
+                or len(cleaned_text) < 15
                 or any(cleaned_text.lower().startswith(bad) for bad in ["user safety", "safety:", "system:", "<|", "[inst]"])
                 or has_reasoning_leakage
             )
 
             if is_unusable:
-                if has_reasoning_leakage:
+                if is_empty:
                     logger.warning(
-                        "Reasoning leakage detected in OpenRouter response ('%s'). Falling back to safe response.",
+                        "Fallback triggered (reason: llm_empty_response) for action '%s'.",
+                        action.value if hasattr(action, "value") else str(action),
+                    )
+                elif has_reasoning_leakage:
+                    logger.warning(
+                        "Fallback triggered (reason: llm_reasoning_leakage) for action '%s': '%s'.",
+                        action.value if hasattr(action, "value") else str(action),
                         cleaned_text[:80],
                     )
                 else:
                     logger.warning(
-                        "OpenRouter returned unhelpful/metadata response ('%s'). Falling back to safe response.",
+                        "Fallback triggered (reason: llm_unusable_response) for action '%s': '%s'.",
+                        action.value if hasattr(action, "value") else str(action),
                         cleaned_text[:50],
                     )
-                return self._generate_fallback(action, intent, evidence, clarification_question, decision_reason)
+                return self._generate_fallback(
+                    action, intent, evidence, clarification_question, decision_reason, conversation=conversation
+                )
 
             logger.info(
                 "OpenRouter generation successful (Model: %s, Latency: %.3fs, Chars: %d).",
@@ -366,20 +511,24 @@ class SupportResponseGenerator:
         except (APITimeoutError, RateLimitError, APIError) as api_err:
             latency = round(time.perf_counter() - start_time, 3)
             logger.error(
-                "OpenRouter API error (Type: %s, Latency: %.3fs): %s. Falling back to safe response.",
+                "Fallback triggered (reason: llm_api_error, type: %s, latency: %.3fs): %s.",
                 type(api_err).__name__,
                 latency,
                 api_err,
             )
-            return self._generate_fallback(action, intent, evidence, clarification_question, decision_reason)
+            return self._generate_fallback(
+                action, intent, evidence, clarification_question, decision_reason, conversation=conversation
+            )
         except Exception as exc:
             latency = round(time.perf_counter() - start_time, 3)
             logger.error(
-                "Unexpected error during OpenRouter call (Latency: %.3fs): %s. Falling back to safe response.",
+                "Fallback triggered (reason: llm_api_error, latency: %.3fs): %s.",
                 latency,
                 exc,
             )
-            return self._generate_fallback(action, intent, evidence, clarification_question, decision_reason)
+            return self._generate_fallback(
+                action, intent, evidence, clarification_question, decision_reason, conversation=conversation
+            )
 
     def _generate_fallback(
         self,
@@ -388,12 +537,17 @@ class SupportResponseGenerator:
         evidence: List[EvidenceItem],
         clarification_question: Optional[str] = None,
         decision_reason: Optional[str] = None,
+        conversation: Optional[ConversationState] = None,
     ) -> Tuple[str, bool]:
         """Produce safe deterministic fallback string based on action."""
         if action == SupportAction.CLARIFY:
             return get_fallback_clarify(clarification_question), True
         elif action == SupportAction.ESCALATE:
-            return get_fallback_escalate(decision_reason), True
+            return get_fallback_escalate(
+                reason=decision_reason,
+                evidence=evidence,
+                conversation=conversation,
+            ), True
         else:
             return get_fallback_auto_handle(intent, evidence), True
 

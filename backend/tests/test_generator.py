@@ -611,3 +611,107 @@ def test_fallback_does_not_contain_standard_guidance(sample_evidence):
     assert "We understand you're experiencing an issue with Battery / Charging." in result
     assert "Settings > Battery" in result
 
+
+# ------------------------------------------------------------------------------
+# Targeted Escalation Fallback Tests (Phase 10 Fallback Hardening)
+# ------------------------------------------------------------------------------
+def test_fallback_hardware_escalation_no_troubleshooting_claim():
+    """TEST 1: Hardware escalation - fallback does NOT say troubleshooting was attempted,
+    recommends contacting Apple Support / specialist, concise, no invented warranty/pricing."""
+    generator = SupportResponseGenerator(
+        settings=Settings(OPENROUTER_API_KEY=None),
+        client=None,
+    )
+    conv = ConversationState(
+        conversation_id="conv_shattered_01",
+        messages=[
+            MessageItem(role=MessageRole.CUSTOMER, text="I dropped my iPhone and the screen is shattered.")
+        ],
+    )
+    resp, is_fallback = generator.generate(
+        conversation=conv,
+        action=SupportAction.ESCALATE,
+        intent=IntentEnum.DEVICE_HARDWARE,
+        evidence=[],
+        decision_reason="Physical hardware damage or hazard requires in-person or hardware specialist inspection.",
+    )
+
+    assert is_fallback is True
+    resp_lower = resp.lower()
+    # 1. Fallback must NOT claim troubleshooting was attempted
+    assert "troubleshooting" not in resp_lower
+    assert "steps haven't resolved" not in resp_lower
+    # 2. Recommends contacting Apple Support / specialist
+    assert "apple support specialist" in resp_lower or "specialist" in resp_lower
+    # 3. Response remains concise
+    assert len(resp.split()) < 35
+    # 4. No invented warranty, pricing, or repair policy
+    assert "warranty" not in resp_lower
+    assert "cost" not in resp_lower
+    assert "price" not in resp_lower
+    assert "$" not in resp
+    assert "appointment" not in resp_lower
+    assert "http" not in resp_lower
+
+
+def test_fallback_repeated_troubleshooting_references_troubleshooting():
+    """TEST 2: Repeated troubleshooting escalation - referencing troubleshooting is acceptable."""
+    generator = SupportResponseGenerator(
+        settings=Settings(OPENROUTER_API_KEY=None),
+        client=None,
+    )
+    conv = ConversationState(
+        conversation_id="conv_kb_01",
+        messages=[
+            MessageItem(role=MessageRole.CUSTOMER, text="My keyboard disappeared."),
+            MessageItem(role=MessageRole.ASSISTANT, text="Please try the suggested troubleshooting steps."),
+            MessageItem(role=MessageRole.CUSTOMER, text="Still having problems. That didn't help."),
+        ],
+    )
+    resp, is_fallback = generator.generate(
+        conversation=conv,
+        action=SupportAction.ESCALATE,
+        intent=IntentEnum.SETTINGS_FEATURES,
+        evidence=[],
+        decision_reason="Customer reported that troubleshooting steps have not resolved the issue. Escalating to human support specialist.",
+    )
+
+    assert is_fallback is True
+    resp_lower = resp.lower()
+    # Acceptable to reference troubleshooting because it actually happened
+    assert "troubleshooting" in resp_lower
+    assert "specialist" in resp_lower
+
+
+def test_fallback_empty_llm_response_returns_customer_facing_fallback():
+    """TEST 3: Empty LLM response triggers safe fallback without crashing or leaking reasoning."""
+    mock_client = MagicMock()
+    mock_client.chat.completions.create.return_value = make_mock_openai_response("    ")
+
+    generator = SupportResponseGenerator(
+        settings=Settings(OPENROUTER_API_KEY="mock_key"),
+        client=mock_client,
+    )
+    conv = ConversationState(
+        conversation_id="conv_empty_shattered",
+        messages=[
+            MessageItem(role=MessageRole.CUSTOMER, text="I dropped my iPhone on the road and the screen is shattered and cracked")
+        ],
+    )
+    resp, is_fallback = generator.generate(
+        conversation=conv,
+        action=SupportAction.ESCALATE,
+        intent=IntentEnum.DEVICE_HARDWARE,
+        evidence=[],
+        decision_reason="Physical hardware damage or hazard requires in-person or hardware specialist inspection.",
+    )
+
+    assert is_fallback is True
+    assert isinstance(resp, str)
+    assert len(resp.strip()) > 15
+    # Customer facing, no troubleshooting claim
+    assert "troubleshooting" not in resp.lower()
+    assert "reasoning" not in resp.lower()
+    assert "specialist" in resp.lower()
+
+
